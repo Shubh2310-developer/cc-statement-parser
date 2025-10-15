@@ -1,0 +1,9 @@
+
+> cc-statement-parser-frontend@1.0.0 dev
+> vite --port 5173 --host
+
+
+  VITE v7.1.10  ready in 115 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.0.103:5173/

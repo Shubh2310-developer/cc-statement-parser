@@ -1,0 +1,24 @@
+{
+  "issuer": {"name": "American Express", "statement_type": "Membership Rewards credit card statement", "contact_phone": "1800 123 1234", "website": "americanexpress.com"},
+  "cardholder": {"name": "Vikram Malhotra", "address": "DLF Phase 4, Tower B, Apt 901\nGurgaon\nHaryana HR 122002"},
+  "statement_info": {"statement_date": "April 17, 2025", "statement_balance": 125890.78, "statement_period": "March 18, 2025–April 17, 2025", "payment_due_date": "May 8, 2025"},
+  "account_summary": {"previous_balance": 89456.32, "previous_balance_date": "March 17, 2025", "purchases": 156789.43, "cash_advances": 0.00, "interest": 0.00, "fees": 1500.00, "other_charges": 0.00, "payments": 121854.97, "other_credits": 0.00, "statement_balance": 125890.78, "past_due_amount": 0.00, "overlimit_amount": 0.00, "minimum_payment": 6294.54, "credit_limit": 500000.00, "available_credit": 374109.22},
+  "transactions": [
+    {"transaction_date": "20 March", "posting_date": "22 March", "description": "Payment Online Transfer", "amount": -89456.32},
+    {"transaction_date": "23 March", "posting_date": "25 March", "description": "Payment NEFT", "amount": -32398.65},
+    {"transaction_date": "26 March", "posting_date": "28 March", "description": "Taj Hotel New Delhi", "amount": 45678.90},
+    {"transaction_date": "29 March", "posting_date": "31 March", "description": "Indigo Airlines Booking", "amount": 28765.43},
+    {"transaction_date": "03 April", "posting_date": "05 April", "description": "Apple Store Cyber Hub", "amount": 89234.56},
+    {"transaction_date": "07 April", "posting_date": "09 April", "description": "BMW Service Center Delhi", "amount": 23456.78},
+    {"transaction_date": "10 April", "posting_date": "12 April", "description": "Oberoi Hotel Mumbai MH", "amount": 34567.89},
+    {"transaction_date": "13 April", "posting_date": "15 April", "description": "Tanishq Jewellers Gurgaon", "amount": 56789.12},
+    {"transaction_date": "15 April", "posting_date": "17 April", "description": "Annual Membership Fee", "amount": 1500.00},
+    {"transaction_date": "16 April", "posting_date": "17 April", "description": "The Grand Bhagwati Jaipur", "amount": 12345.67}
+  ],
+  "total_payment_activity": -121854.97,
+  "interest_rates": [
+    {"category": "Purchases", "interest_charged": 0.00, "annual_rate": 38.40, "daily_rate": 0.10520},
+    {"category": "Cash advances", "interest_charged": 0.00, "annual_rate": 38.40, "daily_rate": 0.10520},
+    {"category": "Fees", "interest_charged": 0.00, "annual_rate": 38.40, "daily_rate": 0.10520}
+  ]
+}

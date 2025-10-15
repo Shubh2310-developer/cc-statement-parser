@@ -1,0 +1,22 @@
+{
+  "issuer": {"name": "SBI Card", "statement_type": "SimplyCLICK credit card statement", "contact_phone": "1860 180 1290", "website": "sbicard.com"},
+  "cardholder": {"name": "Amit Patel", "address": "Shop No. 12, Nariman Point\nSouth Mumbai\nMumbai MH 400021"},
+  "statement_info": {"statement_date": "April 17, 2025", "statement_balance": 38765.23, "statement_period": "March 18, 2025–April 17, 2025", "payment_due_date": "May 8, 2025"},
+  "account_summary": {"previous_balance": 22340.56, "previous_balance_date": "March 17, 2025", "purchases": 48932.14, "cash_advances": 0.00, "interest": 67.53, "fees": 0.00, "other_charges": 0.00, "payments": 32575.00, "other_credits": 0.00, "statement_balance": 38765.23, "past_due_amount": 0.00, "overlimit_amount": 0.00, "minimum_payment": 1938.26, "credit_limit": 200000.00, "available_credit": 161234.77},
+  "transactions": [
+    {"transaction_date": "20 March", "posting_date": "22 March", "description": "Payment SBI NetBanking", "amount": -32575.00},
+    {"transaction_date": "27 March", "posting_date": "29 March", "description": "Flipkart Online Shopping", "amount": 12456.78},
+    {"transaction_date": "01 April", "posting_date": "03 April", "description": "MakeMyTrip Hotel Booking", "amount": 18500.00},
+    {"transaction_date": "05 April", "posting_date": "07 April", "description": "Bata Store Mumbai MH", "amount": 3456.00},
+    {"transaction_date": "09 April", "posting_date": "11 April", "description": "Domino's Pizza Mumbai MH", "amount": 892.50},
+    {"transaction_date": "12 April", "posting_date": "14 April", "description": "Reliance Fresh Mumbai MH", "amount": 2567.89},
+    {"transaction_date": "15 April", "posting_date": "17 April", "description": "Uber Rides Mumbai MH", "amount": 1234.67},
+    {"transaction_date": "17 April", "posting_date": "17 April", "description": "Interest Charge", "amount": 67.53}
+  ],
+  "total_payment_activity": -32575.00,
+  "interest_rates": [
+    {"category": "Purchases", "interest_charged": 67.53, "annual_rate": 40.80, "daily_rate": 0.11178},
+    {"category": "Cash advances", "interest_charged": 0.00, "annual_rate": 40.80, "daily_rate": 0.11178},
+    {"category": "Fees", "interest_charged": 0.00, "annual_rate": 40.80, "daily_rate": 0.11178}
+  ]
+}

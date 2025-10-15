@@ -1,0 +1,93 @@
+"""ICICI Bank credit card statement parser."""
+import re
+from typing import Dict, List
+
+from app.core.parsers.base import BaseParser
+from app.models.enums import IssuerType, FieldType
+from app.models.domain.field import Field
+
+
+class ICICIParser(BaseParser):
+    """Parser for ICICI Bank credit card statements."""
+
+    def get_issuer_type(self) -> IssuerType:
+        """Return ICICI issuer type."""
+        return IssuerType.ICICI
+
+    def can_parse(self, text: str) -> tuple[bool, float]:
+        """Check if this is an ICICI statement."""
+        markers = [
+            r'ICICI\s+Bank',
+            r'icicibank\.com',
+            r'CIN\s+No\.?\s*L65190GJ1994PLC021012',  # ICICI CIN
+        ]
+        
+        matches = 0
+        for marker in markers:
+            if re.search(marker, text, re.IGNORECASE):
+                matches += 1
+        
+        if matches >= 1:
+            confidence = min(0.95, 0.7 + (matches * 0.15))
+            return (True, confidence)
+        
+        return (False, 0.0)
+
+    def get_patterns(self) -> Dict[str, List[str]]:
+        """Get ICICI-specific regex patterns."""
+        return {
+            'card_number': [
+                r'Card\s+No[:\s]+(\d{4}\s?\*{4}\s?\d{4})',
+                r'(\d{4}\s?\d{4}\s?\*{4}\s?\d{4})',
+                r'XXXX\s+XXXX\s+(\d{4})',
+            ],
+            'card_variant': [
+                r'ICICI\s+Bank\s+(.*?)\s+Credit\s+Card',
+                r'(Platinum|Gold|Coral|Rubyx|Sapphiro)\s+Credit\s+Card',
+            ],
+            'due_date': [
+                r'PAYMENT\s+DUE\s+DATE[:\s]+(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})',
+                r'Due\s+Date[:\s]+(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})',
+                r'Pay\s+by[:\s]+(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})',
+            ],
+            'billing_cycle': [
+                r'STATEMENT\s+DATE[:\s]+(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})',
+                r'Statement\s+(?:Period|Date)[:\s]+(.*?\d{2,4})',
+            ],
+            'total_due': [
+                r'Total\s+Amount\s+due[:\s]+`?\s*([\d,]+\.?\d*)',
+                r'Current\s+Dues[:\s]+`?\s*([\d,]+\.?\d*)',
+                r'(?:Rs\.?|₹|`)\s*([\d,]+\.?\d*)\s+Total',
+            ],
+            'minimum_due': [
+                r'Minimum\s+Amount\s+due[:\s]+`?\s*([\d,]+\.?\d*)',
+                r'Minimum\s+Payment[:\s]+`?\s*([\d,]+\.?\d*)',
+            ],
+        }
+
+    def extract_card_info(self, text: str) -> Dict[FieldType, Field]:
+        """Extract ICICI-specific card information."""
+        fields = super().extract_card_info(text)
+        
+        # ICICI often shows partial card number
+        if FieldType.CARD_LAST_4_DIGITS not in fields:
+            # Look for patterns like "XXXX XXXX 1234"
+            patterns = [
+                r'[X*]{4}\s+[X*]{4}\s+(\d{4})',
+                r'Card\s+ending\s+with\s+(\d{4})',
+            ]
+            
+            for pattern in patterns:
+                match = re.search(pattern, text, re.IGNORECASE)
+                if match:
+                    last_4 = match.group(1)
+                    fields[FieldType.CARD_LAST_4_DIGITS] = Field(
+                        field_type=FieldType.CARD_LAST_4_DIGITS,
+                        value=last_4,
+                        confidence=0.95,
+                        snippet=match.group(0),
+                        extraction_method="regex"
+                    )
+                    break
+        
+        return fields

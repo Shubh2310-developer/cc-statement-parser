@@ -1,0 +1,22 @@
+Instructions
+---------------
+Before starting, you need to register for a Reportlab Account  here https://www.reportlab.com/accounts/register/
+
+(You will be prompted for a user name and password when installing requirements below.)
+
+How to install and run locally
+--------------------------------------
+
+python -m venv  .
+. bin/activate
+pip install -r requirements.txt
+
+data/  has sample JSON files
+
+Generate a PDF from the command line
+----------------------------------------------------
+python gen_invoice.py data/invoice.json
+
+
+Generated PDF is in output/
+

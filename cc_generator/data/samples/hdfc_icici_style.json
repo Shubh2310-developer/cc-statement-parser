@@ -1,0 +1,44 @@
+{
+  "issuer": {
+    "name": "HDFC Bank",
+    "statement_type": "MoneyBack+ Platinum",
+    "contact_phone": "1800 266-4332",
+    "website": "www.hdfcbank.com"
+  },
+  "cardholder": {
+    "name": "RAJESH KUMAR",
+    "address": "Flat 204, Tower A, Prestige Apartments\nKoramangala 5th Block\nBangalore KA 560095"
+  },
+  "statement_info": {
+    "statement_date": "April 17, 2025",
+    "payment_due_date": "May 8, 2025",
+    "statement_balance": 74251.89,
+    "statement_period": "March 18, 2025 to April 17, 2025"
+  },
+  "account_summary": {
+    "previous_balance": 42817.50,
+    "purchases": 89456.73,
+    "cash_advances": 5000.00,
+    "payments": 63650.00,
+    "other_credits": 0.00,
+    "statement_balance": 74251.89,
+    "minimum_payment": 3712.59,
+    "credit_limit": 250000.00,
+    "available_credit": 175748.11
+  },
+  "transactions": [
+    {"transaction_date": "19/03/2025", "posting_date": "21/03/2025", "description": "Payment HDFC NetBanking", "amount": -35000.00, "reward_points": 0},
+    {"transaction_date": "22/03/2025", "posting_date": "24/03/2025", "description": "Payment NEFT Transfer", "amount": -28650.00, "reward_points": 0},
+    {"transaction_date": "25/03/2025", "posting_date": "27/03/2025", "description": "Amazon India Mumbai MH", "amount": 12543.87, "reward_points": 250},
+    {"transaction_date": "28/03/2025", "posting_date": "30/03/2025", "description": "Flipkart Bangalore KA", "amount": 8976.45, "reward_points": 179},
+    {"transaction_date": "02/04/2025", "posting_date": "04/04/2025", "description": "Swiggy Bangalore KA", "amount": 1247.00, "reward_points": 25},
+    {"transaction_date": "05/04/2025", "posting_date": "07/04/2025", "description": "Big Bazaar Koramangala KA", "amount": 5632.90, "reward_points": 112},
+    {"transaction_date": "07/04/2025", "posting_date": "09/04/2025", "description": "Shell Petrol Pump Bangalore KA", "amount": 3200.00, "reward_points": 96},
+    {"transaction_date": "08/04/2025", "posting_date": "10/04/2025", "description": "ATM Cash Withdrawal", "amount": 5000.00, "reward_points": 0},
+    {"transaction_date": "10/04/2025", "posting_date": "12/04/2025", "description": "Cash Advance Fee", "amount": 500.00, "reward_points": 0},
+    {"transaction_date": "11/04/2025", "posting_date": "13/04/2025", "description": "BookMyShow Bangalore KA", "amount": 850.00, "reward_points": 17}
+  ],
+  "rewards_points": 679,
+  "invoice_number": "HDFC20250417001",
+  "gst_number": "27AABCH3451M1ZK"
+}

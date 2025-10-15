@@ -1,0 +1,61 @@
+{
+  "issuer": {
+    "name": "HDFC Bank",
+    "statement_type": "MoneyBack+ credit card statement",
+    "contact_phone": "1800 266-4332",
+    "website": "hdfcbank.com"
+  },
+  "cardholder": {
+    "name": "Rajesh Kumar",
+    "address": "Flat 204, Tower A, Prestige Apartments\nKoramangala 5th Block\nBangalore KA 560095"
+  },
+  "statement_info": {
+    "statement_date": "April 17, 2025",
+    "statement_balance": 74251.89,
+    "statement_period": "March 18, 2025–April 17, 2025",
+    "payment_due_date": "May 8, 2025"
+  },
+  "account_summary": {
+    "previous_balance": 42817.50,
+    "previous_balance_date": "March 17, 2025",
+    "purchases": 89456.73,
+    "cash_advances": 5000.00,
+    "interest": 127.66,
+    "fees": 500.00,
+    "other_charges": 0.00,
+    "payments": 63650.00,
+    "other_credits": 0.00,
+    "statement_balance": 74251.89,
+    "past_due_amount": 0.00,
+    "overlimit_amount": 0.00,
+    "minimum_payment": 3712.59,
+    "credit_limit": 250000.00,
+    "available_credit": 175748.11
+  },
+  "transactions": [
+    {"transaction_date": "19 March", "posting_date": "21 March", "description": "Payment HDFC NetBanking", "amount": -35000.00},
+    {"transaction_date": "22 March", "posting_date": "24 March", "description": "Payment NEFT Transfer", "amount": -28650.00},
+    {"transaction_date": "25 March", "posting_date": "27 March", "description": "Amazon India Mumbai MH", "amount": 12543.87},
+    {"transaction_date": "28 March", "posting_date": "30 March", "description": "Flipkart Bangalore KA", "amount": 8976.45},
+    {"transaction_date": "02 April", "posting_date": "04 April", "description": "Swiggy Bangalore KA", "amount": 1247.00},
+    {"transaction_date": "05 April", "posting_date": "07 April", "description": "Big Bazaar Koramangala KA", "amount": 5632.90},
+    {"transaction_date": "07 April", "posting_date": "09 April", "description": "Shell Petrol Pump Bangalore KA", "amount": 3200.00},
+    {"transaction_date": "08 April", "posting_date": "10 April", "description": "ATM Cash Withdrawal", "amount": 5000.00},
+    {"transaction_date": "10 April", "posting_date": "12 April", "description": "Cash Advance Fee", "amount": 500.00},
+    {"transaction_date": "11 April", "posting_date": "13 April", "description": "BookMyShow Bangalore KA", "amount": 850.00},
+    {"transaction_date": "12 April", "posting_date": "13 April", "description": "Zomato Gold Membership", "amount": 1199.00},
+    {"transaction_date": "13 April", "posting_date": "15 April", "description": "Reliance Digital Bangalore KA", "amount": 24567.00},
+    {"transaction_date": "14 April", "posting_date": "15 April", "description": "Decathlon Sports Whitefield KA", "amount": 8945.50},
+    {"transaction_date": "15 April", "posting_date": "17 April", "description": "Netflix Subscription", "amount": 649.00},
+    {"transaction_date": "15 April", "posting_date": "17 April", "description": "Spotify Premium India", "amount": 119.00},
+    {"transaction_date": "16 April", "posting_date": "16 April", "description": "McDonald's MG Road Bangalore", "amount": 567.00},
+    {"transaction_date": "17 April", "posting_date": "17 April", "description": "More Supermarket HSR Layout", "amount": 2312.34},
+    {"transaction_date": "17 April", "posting_date": "17 April", "description": "Interest Charge", "amount": 127.66}
+  ],
+  "total_payment_activity": -63650.00,
+  "interest_rates": [
+    {"category": "Purchases", "interest_charged": 0.00, "annual_rate": 42.00, "daily_rate": 0.11507},
+    {"category": "Cash advances", "interest_charged": 127.66, "annual_rate": 42.00, "daily_rate": 0.11507},
+    {"category": "Fees", "interest_charged": 0.00, "annual_rate": 42.00, "daily_rate": 0.11507}
+  ]
+}

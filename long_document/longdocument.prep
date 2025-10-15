@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!DOCTYPE document SYSTEM "rml_1_0.dtd"> 
+<document filename="long_example.pdf" colorSpace="RGB">
+{{script}}
+    import html
+    from datetime import date
+    date = date.today()
+{{endscript}}
+
+<docinit useCropMarks="0">
+    <registerTTFont faceName="Carlito-Regular" fileName="fonts/Carlito-Regular.ttf"/>
+    <registerTTFont faceName="Carlito-Bold" fileName="fonts/Carlito-Bold.ttf"/>
+    <registerFontFamily normal="Carlito-Regular" bold="Carlito-Bold"/>
+</docinit>
+
+<template showBoundary="0">
+    <pageTemplate id="TOC" pageSize="A4">
+        <pageGraphics>
+            <setFont name="Carlito-Regular" size="8" leading="9.4"/>
+            <drawString x="30" y="800">{{document['header']}}</drawString>
+            <drawRightString x="560" y="800">www.reportlab.com</drawRightString>
+            <setFont name="Carlito-Regular" size="8" leading="9.4"/>
+            <drawRightString x="565" y="22">Page <pageNumber/> of <getName id="last_page" default="0"/></drawRightString>
+            <drawString x="30" y="22">Printed on {{date}}</drawString>
+            <rect x="490" y="790" height="20" width="80" fill="0" stroke="0" href="http://www.reportlab.com"></rect> <!--link www.reportlab.com -->
+            <stroke width="20" color="silver"/>
+            <rect x="0" y="0" height="840" width="595" fill="0" stroke="1"></rect>
+        </pageGraphics>
+        <frame id="top" x1="30" y1="660" width="530" height="120"/>
+        <frame id="left" x1="30" y1="30" width="255" height="600"/>
+        <frame id="right" x1="305" y1="30" width="255" height="600"/>
+    </pageTemplate>
+
+    <pageTemplate id="chapter_start" pageSize="A4">
+        <pageGraphics>
+            <setFont name="Carlito-Regular" size="8" leading="9.4"/>
+            <drawRightString x="560" y="800">www.reportlab.com</drawRightString>
+            <setFont name="Carlito-Regular" size="8" leading="9.4"/>
+            <drawRightString x="565" y="22">Page <pageNumber/> of <getName id="last_page" default="0"/></drawRightString>
+            <drawString x="30" y="22">Printed on {{date}}</drawString>
+            <setFont name="Carlito-Regular" size="17" leading="9.4"/>
+            <rect x="520" y="18" height="20" width="50" fill="0" stroke="0" destination="bm_toc_page"></rect> <!--link page number to contents page-->
+            <rect x="490" y="790" height="20" width="80" fill="0" stroke="0" href="http://www.reportlab.com"></rect> <!--link www.reportlab.com -->
+            <stroke width="20" color="silver"/>
+            <rect x="0" y="0" height="840" width="595" fill="0" stroke="1"></rect>
+        </pageGraphics>
+        <frame id="title" x1="30" y1="730" width="530" height="50"/>
+        <frame id="body" x1="30" y1="30" width="530" height="690"/>
+    </pageTemplate>
+
+    <pageTemplate id="chapter_extended" pageSize="A4">
+        <pageGraphics>
+            <setFont name="Helvetica-Oblique" size="15" leading="15"/>
+            <drawCenteredString x="297" y="800"><getName id="chapter_header" default="0"/></drawCenteredString> <!-- place the chapter on the  page header-->
+            <setFont name="Helvetica-Oblique" size="8" leading="9.4"/>
+            <drawRightString x="560" y="800">www.reportlab.com</drawRightString>
+            <setFont name="Carlito-Regular" size="8" leading="9.4"/>
+            <drawRightString x="565" y="22">Page <pageNumber/> of <getName id="last_page" default="0"/></drawRightString>
+            <drawString x="30" y="22">Printed on {{date}}</drawString>
+            <setFont name="Carlito-Regular" size="17" leading="9.4"/>
+            <rect x="520" y="18" height="20" width="50" fill="0" stroke="0" destination="bm_toc_page"></rect> <!--link page number to contents page-->
+            <rect x="490" y="790" height="20" width="80" fill="0" stroke="0" href="http://www.reportlab.com"></rect> <!--link www.reportlab.com -->
+            <stroke width="20" color="silver"/>
+            <rect x="0" y="0" height="840" width="595" fill="0" stroke="1"></rect>
+        </pageGraphics>
+        <frame id="body" x1="30" y1="30" width="530" height="750"/>
+    </pageTemplate>
+
+    <pageTemplate id="copyright" pageSize="A4">
+        <pageGraphics>
+            <setFont name="Helvetica-Oblique" size="8" leading="9.4"/>
+            <drawRightString x="560" y="800">www.reportlab.com</drawRightString>
+            <setFont name="Carlito-Regular" size="8" leading="9.4"/>
+            <drawRightString x="565" y="22">Page <pageNumber/> of <getName id="last_page" default="0"/></drawRightString>
+            <drawString x="30" y="22">Printed on {{date}}</drawString>
+            <setFont name="Carlito-Regular" size="17" leading="9.4"/>
+            <rect x="520" y="18" height="20" width="50" fill="0" stroke="0" destination="bm_toc_page"></rect> <!--link page number to contents page-->
+            <rect x="490" y="790" height="20" width="80" fill="0" stroke="0" href="http://www.reportlab.com"></rect> <!--link www.reportlab.com -->
+            <stroke width="20" color="silver"/>
+            <rect x="0" y="0" height="840" width="595" fill="0" stroke="1"></rect>
+        </pageGraphics>
+        <frame id="body" x1="30" y1="30" width="530" height="750"/>
+    </pageTemplate>
+</template>
+
+<stylesheet>
+    <blockTableStyle id="first" spaceAfter="10">
+		<blockFont name="Carlito-Bold" size="12" leading="10.8" start="0,0" stop="-1,2" />
+		<blockFont name="Carlito-Regular" size="12" leading="10.8" start="0,1" stop="-1,-1" />
+		<blockAlignment value="left" start="0,0" stop="-1,-1"/>
+		<blockValign value="MIDDLE"/>
+		<blockAlignment value="LEFT" start="0,0" stop="0,0"/>
+        <blockLeftPadding length="1" start="0,0" stop="0,0" />
+		<lineStyle kind="OUTLINE" colorName="black" start="0,2" stop="-1,0" />
+	</blockTableStyle>
+
+    <paraStyle name="normal" fontName="Carlito-Regular"  alignment="left" fontSize="15" spaceAfter="8" leading="16.6"/>
+    <paraStyle name="bold" parent="normal" fontName="Carlito-Bold"  alignment="center"/>
+</stylesheet>
+
+<story firstPageTemplate="TOC">
+    <setNextTemplate name="chapter_start"/>
+    <para alignment="centre" fontSize="25" spaceAfter="25">{{document['title']}}</para>
+    <bookmarkPage name="bm_toc_page"/>
+    <para alignment="centre" fontSize="15">By {{document['author']}}</para>
+    <nextFrame name="left"/>
+
+    <blockTable style="first" repeatRows="1" colWidths="85%,15%">
+        <tr><td colspan="2" fontName="Carlito-Regular" fontSize="17" leading="9.4" bottomPadding="30">Table of Contents</td><td/></tr>
+        <tr><td>Chapter</td><td>Page</td></tr>
+        {{for title, chapter in document['chapters']}}
+        <tr>
+            <td destination="bm_{{title}}_page">{{title}}</td>
+            <td destination="bm_{{title}}_page"><para fontName="Carlito-Bold" fontSize="12" leading="14.4" alignment="center"><i><getName id="{{title}}_page" default="1"/></i></para></td>
+        </tr>
+        {{endfor}}
+    </blockTable>
+
+    {{for title, chapter in document['chapters']}}
+        <setNextTemplate name="chapter_start"/> <!-- Switch to extended body page template if needed -->
+        <nextPage/>
+        <namedString id="{{title}}_page"><pageNumber/></namedString>
+        <namedString id="chapter_header">{{title}}</namedString> <!-- -->
+        <bookmarkPage name="bm_{{title}}_page"/>
+        <nextFrame name="title"/>
+        <h1 alignment="left">{{title}}</h1>
+        <setNextTemplate name="chapter_extended"/> <!-- Switch to extended body page template if needed -->
+        <nextFrame name="body"/>
+        {{for para in chapter}}
+            <para style="normal">{{html.escape(para)}}</para>
+        {{endfor}}
+    {{endfor}}
+
+    <nextPage name="copyright"/>
+    <namedString id="last_page"><pageNumber/></namedString>
+    <para alignment="left" fontSize="16" leading="16.6">{{document['copyright']}}</para>
+</story>
+</document>

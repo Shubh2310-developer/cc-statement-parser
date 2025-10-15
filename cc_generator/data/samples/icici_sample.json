@@ -1,0 +1,57 @@
+{
+  "issuer": {
+    "name": "ICICI Bank",
+    "statement_type": "Amazon Pay credit card statement",
+    "contact_phone": "1860 120 7777",
+    "website": "icicibank.com"
+  },
+  "cardholder": {
+    "name": "Priya Sharma",
+    "address": "B-302, Sunshine Residency\nAndheri West\nMumbai MH 400058"
+  },
+  "statement_info": {
+    "statement_date": "April 17, 2025",
+    "statement_balance": 52890.45,
+    "statement_period": "March 18, 2025–April 17, 2025",
+    "payment_due_date": "May 8, 2025"
+  },
+  "account_summary": {
+    "previous_balance": 31456.78,
+    "previous_balance_date": "March 17, 2025",
+    "purchases": 67823.91,
+    "cash_advances": 10000.00,
+    "interest": 89.24,
+    "fees": 750.00,
+    "other_charges": 0.00,
+    "payments": 57229.48,
+    "other_credits": 0.00,
+    "statement_balance": 52890.45,
+    "past_due_amount": 0.00,
+    "overlimit_amount": 0.00,
+    "minimum_payment": 2644.52,
+    "credit_limit": 150000.00,
+    "available_credit": 97109.55
+  },
+  "transactions": [
+    {"transaction_date": "19 March", "posting_date": "21 March", "description": "Payment ICICI Mobile App", "amount": -31456.78},
+    {"transaction_date": "24 March", "posting_date": "26 March", "description": "Payment UPI Transfer", "amount": -25772.70},
+    {"transaction_date": "26 March", "posting_date": "28 March", "description": "Amazon.in Mumbai MH", "amount": 18965.43},
+    {"transaction_date": "30 March", "posting_date": "01 April", "description": "Myntra Fashion Mumbai MH", "amount": 6754.00},
+    {"transaction_date": "03 April", "posting_date": "05 April", "description": "D-Mart Andheri Mumbai MH", "amount": 4321.78},
+    {"transaction_date": "06 April", "posting_date": "08 April", "description": "Zomato Mumbai MH", "amount": 2187.90},
+    {"transaction_date": "08 April", "posting_date": "10 April", "description": "HP Petrol Pump Mumbai MH", "amount": 4500.00},
+    {"transaction_date": "09 April", "posting_date": "11 April", "description": "ATM Cash Withdrawal", "amount": 10000.00},
+    {"transaction_date": "09 April", "posting_date": "11 April", "description": "Cash Advance Fee", "amount": 750.00},
+    {"transaction_date": "12 April", "posting_date": "14 April", "description": "Croma Electronics Mumbai MH", "amount": 15678.90},
+    {"transaction_date": "14 April", "posting_date": "16 April", "description": "Westside Fashion Andheri MH", "amount": 7234.50},
+    {"transaction_date": "15 April", "posting_date": "17 April", "description": "Starbucks Bandra Mumbai MH", "amount": 895.00},
+    {"transaction_date": "16 April", "posting_date": "17 April", "description": "Big Basket Mumbai MH", "amount": 3456.78},
+    {"transaction_date": "17 April", "posting_date": "17 April", "description": "Interest Charge", "amount": 89.24}
+  ],
+  "total_payment_activity": -57229.48,
+  "interest_rates": [
+    {"category": "Purchases", "interest_charged": 0.00, "annual_rate": 45.99, "daily_rate": 0.12601},
+    {"category": "Cash advances", "interest_charged": 89.24, "annual_rate": 45.99, "daily_rate": 0.12601},
+    {"category": "Fees", "interest_charged": 0.00, "annual_rate": 45.99, "daily_rate": 0.12601}
+  ]
+}

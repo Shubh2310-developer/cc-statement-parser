@@ -1,0 +1,24 @@
+{
+  "issuer": {"name": "Axis Bank", "statement_type": "Flipkart Axis Bank credit card statement", "contact_phone": "1860 419 5555", "website": "axisbank.com"},
+  "cardholder": {"name": "Neha Reddy", "address": "H.No. 8-2-293/82/A, Road No. 36\nJubilee Hills\nHyderabad TS 500033"},
+  "statement_info": {"statement_date": "April 17, 2025", "statement_balance": 61234.56, "statement_period": "March 18, 2025–April 17, 2025", "payment_due_date": "May 8, 2025"},
+  "account_summary": {"previous_balance": 28945.67, "previous_balance_date": "March 17, 2025", "purchases": 78654.32, "cash_advances": 3000.00, "interest": 145.89, "fees": 300.00, "other_charges": 0.00, "payments": 49811.32, "other_credits": 0.00, "statement_balance": 61234.56, "past_due_amount": 0.00, "overlimit_amount": 0.00, "minimum_payment": 3061.73, "credit_limit": 180000.00, "available_credit": 118765.44},
+  "transactions": [
+    {"transaction_date": "21 March", "posting_date": "23 March", "description": "Payment Axis Mobile Banking", "amount": -49811.32},
+    {"transaction_date": "28 March", "posting_date": "30 March", "description": "Flipkart Hyderabad TS", "amount": 24567.89},
+    {"transaction_date": "02 April", "posting_date": "04 April", "description": "Myntra Fashion Online", "amount": 8765.43},
+    {"transaction_date": "06 April", "posting_date": "08 April", "description": "Pantaloons Banjara Hills TS", "amount": 6543.21},
+    {"transaction_date": "09 April", "posting_date": "11 April", "description": "Swiggy Hyderabad TS", "amount": 1876.54},
+    {"transaction_date": "11 April", "posting_date": "13 April", "description": "ATM Cash Withdrawal", "amount": 3000.00},
+    {"transaction_date": "11 April", "posting_date": "13 April", "description": "Cash Advance Fee", "amount": 300.00},
+    {"transaction_date": "14 April", "posting_date": "16 April", "description": "Lifestyle Store Hyderabad TS", "amount": 9876.54},
+    {"transaction_date": "16 April", "posting_date": "17 April", "description": "BookMyShow Hyderabad TS", "amount": 1234.56},
+    {"transaction_date": "17 April", "posting_date": "17 April", "description": "Interest Charge", "amount": 145.89}
+  ],
+  "total_payment_activity": -49811.32,
+  "interest_rates": [
+    {"category": "Purchases", "interest_charged": 0.00, "annual_rate": 43.20, "daily_rate": 0.11836},
+    {"category": "Cash advances", "interest_charged": 145.89, "annual_rate": 43.20, "daily_rate": 0.11836},
+    {"category": "Fees", "interest_charged": 0.00, "annual_rate": 43.20, "daily_rate": 0.11836}
+  ]
+}

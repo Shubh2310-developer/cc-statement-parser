@@ -1,0 +1,49 @@
+{
+    "id": "Hgdl165-n",
+    "customer_name": "Liu Young Electronics",
+    "address": "14 Kings Street, Yang Region",
+    "country_name": "Hong Kong",
+    "manager": "Samo Haung",
+    "issue_date": "21 December 2017",
+    "terms": "30 days",
+    "vat_number": "58641949644",
+    "purchase_id": "RPLUS 10k pages",
+    "subtotal": "\u00a32600.00",
+    "vat_total": "\u00a3520.00",
+    "total_price": "\u00a33120.00",
+    "important_text": "This invoice is due within 30 days",
+    "items": ["one","two","three"],
+    "last_name": "Liu",
+    "orders": [
+        
+        {
+            "description": "RPTLAB PLUS",
+            "price": "\u00a31300.00",
+            "quantity": 1,
+            "net": "\u00a31300.00",
+            "vat": "20%",
+            "gross": "\u00a31560.00"
+
+        },
+        {
+            "description": "Initial Consultation",
+            "price": "\u00a3500.00",
+            "quantity": 1,
+            "net": "\u00a3500.00",
+            "vat": "20%",
+            "gross": "\u00a3600.00"
+
+        },
+        {
+            
+            "description": "Live Server set up",
+            "price": "\u00a3800.00",
+            "quantity": 1,
+            "net": "\u00a3800.00",
+            "vat": "20%",
+            "gross": "\u00a3960.00"
+
+        }
+    ]
+    
+}

@@ -1,0 +1,104 @@
+{
+  "issuer": {
+    "name": "ICICI Bank",
+    "statement_type": "Platinum Credit Card",
+    "contact_phone": "1800 1080",
+    "website": "www.icicibank.com"
+  },
+  "cardholder": {
+    "name": "MR RAJ KUMAR",
+    "address": "RANJAN NARULA ASSOCIATES PVT LTD\n401 402 4TH FLOOR SUNCITY SUCCESS TOWER\nSECTOR 65 GOLF COURSE ROAD GURGAON\nGURGAON\nHARYANA, GURGAON 122003"
+  },
+  "statement_info": {
+    "statement_date": "April 18, 2025",
+    "payment_due_date": "May 6, 2025",
+    "statement_balance": 71594.10,
+    "statement_period": "March 19, 2025 to April 18, 2025"
+  },
+  "account_summary": {
+    "previous_balance": 65282.65,
+    "purchases": 15441.45,
+    "cash_advances": 0.00,
+    "payments": 9130.00,
+    "other_credits": 0.00,
+    "statement_balance": 71594.10,
+    "minimum_payment": 9600.00,
+    "credit_limit": 150000.00,
+    "available_credit": 0.00
+  },
+  "transactions": [
+    {
+      "transaction_date": "18/04/2025",
+      "posting_date": "18/04/2025",
+      "description": "Interest Charges",
+      "amount": 2499.07,
+      "reward_points": 0
+    },
+    {
+      "transaction_date": "18/04/2025",
+      "posting_date": "18/04/2025",
+      "description": "IGST-CI@18%",
+      "amount": 449.83,
+      "reward_points": 0
+    },
+    {
+      "transaction_date": "04/04/2025",
+      "posting_date": "04/04/2025",
+      "description": "INFINITY PAYMENT RECEIVED, THANK YOU",
+      "amount": -9130.00,
+      "reward_points": 0
+    },
+    {
+      "transaction_date": "05/04/2025",
+      "posting_date": "05/04/2025",
+      "description": "ONE MOBIKWIK SYSTEMS L HTTP://WWW.MO IN",
+      "amount": 6615.05,
+      "reward_points": 132
+    },
+    {
+      "transaction_date": "06/04/2025",
+      "posting_date": "06/04/2025",
+      "description": "Fee on educational transaction",
+      "amount": 66.15,
+      "reward_points": 0
+    },
+    {
+      "transaction_date": "06/04/2025",
+      "posting_date": "06/04/2025",
+      "description": "IGST-CI@18%",
+      "amount": 11.91,
+      "reward_points": 0
+    },
+    {
+      "transaction_date": "06/04/2025",
+      "posting_date": "06/04/2025",
+      "description": "Interest Amount Amortization - <3/18>ONE MOBIKWIK SYSTEMS L",
+      "amount": 274.80,
+      "reward_points": 0
+    },
+    {
+      "transaction_date": "06/04/2025",
+      "posting_date": "06/04/2025",
+      "description": "IGST-CI@18%",
+      "amount": 49.46,
+      "reward_points": 0
+    },
+    {
+      "transaction_date": "06/04/2025",
+      "posting_date": "06/04/2025",
+      "description": "Principal Amount Amortization - <3/18>ONE MOBIKWIK SYSTEMS L",
+      "amount": 1021.61,
+      "reward_points": 0
+    },
+    {
+      "transaction_date": "10/04/2025",
+      "posting_date": "10/04/2025",
+      "description": "Interest Amount Amortization - <4/18>MOBIKWIK",
+      "amount": 197.21,
+      "reward_points": 0
+    }
+  ],
+  "rewards_points": 132,
+  "invoice_number": "1574180400381541",
+  "gst_number": "27AAACI1195H3ZK"
+}

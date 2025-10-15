@@ -1,0 +1,102 @@
+"""HDFC Bank credit card statement parser."""
+import re
+from typing import Dict, List
+
+from app.core.parsers.base import BaseParser
+from app.models.enums import IssuerType, FieldType
+from app.models.domain.field import Field
+
+
+class HDFCParser(BaseParser):
+    """Parser for HDFC Bank credit card statements."""
+
+    def get_issuer_type(self) -> IssuerType:
+        """Return HDFC issuer type."""
+        return IssuerType.HDFC
+
+    def can_parse(self, text: str) -> tuple[bool, float]:
+        """
+        Check if this is an HDFC statement.
+        
+        Args:
+            text: PDF text content
+            
+        Returns:
+            (can_parse, confidence)
+        """
+        # Look for HDFC-specific markers
+        markers = [
+            r'HDFC\s+Bank',
+            r'HDFC\s+BANK\s+CARD',
+            r'hdfcbank\.com',
+        ]
+        
+        matches = 0
+        for marker in markers:
+            if re.search(marker, text, re.IGNORECASE):
+                matches += 1
+        
+        if matches >= 1:
+            confidence = min(0.9, 0.6 + (matches * 0.15))
+            return (True, confidence)
+        
+        return (False, 0.0)
+
+    def get_patterns(self) -> Dict[str, List[str]]:
+        """
+        Get HDFC-specific regex patterns.
+        
+        Returns:
+            Dictionary of field patterns
+        """
+        return {
+            'card_number': [
+                r'(\d{16,19})',  # Full card number
+                r'Card\s+No[:\s]+(\d{4}\s?\d{4}\s?\d{4}\s?\d{4})',
+                r'(\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4})',
+            ],
+            'card_variant': [
+                r'(Regalia|Millennia|Diners\s+Club|Platinum|MoneyBack)\s+Credit\s+Card',
+                r'HDFC\s+Bank\s+(.*?)\s+Credit\s+Card',
+            ],
+            'due_date': [
+                r'Due\s+Date[:\s]+(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})',
+                r'Payment\s+Due\s+(?:on|by)[:\s]+(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})',
+                r'pay\s+by[:\s]+(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})',
+            ],
+            'billing_cycle': [
+                r'Statement\s+(?:Date|Period)[:\s]+(.*?\d{2,4})',
+                r'(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})\s+to\s+(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})',
+                r'Billing\s+Period[:\s]+(.*?\d{2,4})',
+            ],
+            'total_due': [
+                r'Total\s+Amount\s+Due[:\s]+₹?\s*([\d,]+\.?\d*)',
+                r'Current\s+Outstanding[:\s]+₹?\s*([\d,]+\.?\d*)',
+                r'(?:Rs\.?|₹)\s*([\d,]+\.?\d*)\s+(?:is\s+)?(?:the\s+)?Total\s+(?:Amount\s+)?Due',
+            ],
+            'minimum_due': [
+                r'Minimum\s+(?:Amount\s+)?Due[:\s]+₹?\s*([\d,]+\.?\d*)',
+                r'Min(?:imum)?\s+Payment[:\s]+₹?\s*([\d,]+\.?\d*)',
+            ],
+        }
+
+    def extract_card_info(self, text: str) -> Dict[FieldType, Field]:
+        """Extract HDFC-specific card information."""
+        fields = super().extract_card_info(text)
+        
+        # HDFC shows full card number, extract last 4
+        if FieldType.CARD_LAST_4_DIGITS not in fields:
+            # Try to find 16-digit number
+            match = re.search(r'\b(\d{16})\b', text)
+            if match:
+                full_number = match.group(1)
+                last_4 = full_number[-4:]
+                fields[FieldType.CARD_LAST_4_DIGITS] = Field(
+                    field_type=FieldType.CARD_LAST_4_DIGITS,
+                    value=last_4,
+                    confidence=0.95,
+                    snippet=f"****{last_4}",
+                    extraction_method="regex"
+                )
+        
+        return fields
