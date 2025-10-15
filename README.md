@@ -789,7 +789,29 @@ curl -X POST http://localhost:8000/api/v1/parse \
 
 ## 🚢 Deployment
 
-### Docker Deployment (Recommended)
+### ☁️ Cloud Deployment (Recommended)
+
+Deploy backend and frontend separately for better scalability:
+
+**Backend:** [Render.com](https://render.com) (Free tier available)
+**Frontend:** [Vercel](https://vercel.com) (Free tier available)
+
+```bash
+# Run pre-deployment checks
+./deploy-checklist.sh
+
+# Read detailed deployment guide
+cat DEPLOYMENT.md
+```
+
+**📖 Complete Guide:** See [DEPLOYMENT.md](DEPLOYMENT.md) for step-by-step instructions
+
+**Quick Deploy URLs:**
+- Backend: `https://your-app.onrender.com`
+- Frontend: `https://your-app.vercel.app`
+- Total Cost: **$0/month** (Free tier)
+
+### 🐳 Docker Deployment (Alternative)
 
 ```bash
 # Build and run with Docker Compose
