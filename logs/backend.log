@@ -1,158 +1,158 @@
 INFO:     Will watch for changes in these directories: ['/home/ghost/cc-statement-parser/backend']
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [57517] using WatchFiles
-INFO:     Started server process [57520]
+INFO:     Started reloader process [61069] using WatchFiles
+INFO:     Started server process [61072]
 INFO:     Waiting for application startup.
-[2m2025-10-15T09:47:24.773556Z[0m [[32m[1minfo     [0m] [1mStarting CC Statement Parser API[0m [[34m[1mapp.main[0m] 
-[2m2025-10-15T09:47:24.773737Z[0m [[32m[1minfo     [0m] [1mInitializing database         [0m [[34m[1mapp.database.connection[0m] 
-2025-10-15 15:17:24,775 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2m2025-10-15T17:23:27.982934Z[0m [[32m[1minfo     [0m] [1mStarting CC Statement Parser API[0m [[34m[1mapp.main[0m] 
+[2m2025-10-15T17:23:27.983144Z[0m [[32m[1minfo     [0m] [1mInitializing database         [0m [[34m[1mapp.database.connection[0m] 
+2025-10-15 22:53:27,984 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:24,775 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("jobs")
+2025-10-15 22:53:27,984 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("jobs")
 PRAGMA main.table_info("jobs")
-2025-10-15 15:17:24,775 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-10-15 22:53:27,984 INFO sqlalchemy.engine.Engine [raw sql] ()
 [raw sql] ()
-2025-10-15 15:17:24,776 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("documents")
+2025-10-15 22:53:27,985 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("documents")
 PRAGMA main.table_info("documents")
-2025-10-15 15:17:24,776 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-10-15 22:53:27,985 INFO sqlalchemy.engine.Engine [raw sql] ()
 [raw sql] ()
-2025-10-15 15:17:24,776 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("results")
+2025-10-15 22:53:27,985 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("results")
 PRAGMA main.table_info("results")
-2025-10-15 15:17:24,776 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-10-15 22:53:27,985 INFO sqlalchemy.engine.Engine [raw sql] ()
 [raw sql] ()
-2025-10-15 15:17:24,777 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:53:27,986 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-[2m2025-10-15T09:47:24.777269Z[0m [[32m[1minfo     [0m] [1mDatabase initialized successfully[0m [[34m[1mapp.database.connection[0m] 
-[2m2025-10-15T09:47:24.777337Z[0m [[32m[1minfo     [0m] [1mApplication started successfully[0m [[34m[1mapp.main[0m] 
+[2m2025-10-15T17:23:27.986287Z[0m [[32m[1minfo     [0m] [1mDatabase initialized successfully[0m [[34m[1mapp.database.connection[0m] 
+[2m2025-10-15T17:23:27.986372Z[0m [[32m[1minfo     [0m] [1mApplication started successfully[0m [[34m[1mapp.main[0m] 
 INFO:     Application startup complete.
-[2m2025-10-15T09:47:43.009796Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': 'c69a41dc-51c9-491c-9886-4925a2f03524', 'method': 'POST', 'path': '/api/v1/parse'}[0m [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:43.017805Z[0m [[32m[1minfo     [0m] [1mReceived file upload: SBI CREDIT CARDCC.pdf[0m [[34m[1mapp.api.v1.endpoints.parse[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
+[2m2025-10-15T17:24:12.484761Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '36ffba17-871c-488d-918b-2e88c794b634', 'method': 'POST', 'path': '/api/v1/parse'}[0m [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:12.490862Z[0m [[32m[1minfo     [0m] [1mReceived file upload: SBI CREDIT CARDCC.pdf[0m [[34m[1mapp.api.v1.endpoints.parse[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
 Tesseract may not be properly installed: tesseract is not installed or it's not in your PATH. See README file for more information.
-[2m2025-10-15T09:47:43.019720Z[0m [[32m[1minfo     [0m] [1mStarting parse for file: SBI CREDIT CARDCC.pdf[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-2025-10-15 15:17:43,026 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2m2025-10-15T17:24:12.493459Z[0m [[32m[1minfo     [0m] [1mStarting parse for file: SBI CREDIT CARDCC.pdf[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+2025-10-15 22:54:12,498 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:43,028 INFO sqlalchemy.engine.Engine INSERT INTO jobs (job_id, status, created_at, updated_at, completed_at, error, metadata, progress) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2025-10-15 22:54:12,501 INFO sqlalchemy.engine.Engine INSERT INTO jobs (job_id, status, created_at, updated_at, completed_at, error, metadata, progress) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 INSERT INTO jobs (job_id, status, created_at, updated_at, completed_at, error, metadata, progress) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-2025-10-15 15:17:43,028 INFO sqlalchemy.engine.Engine [generated in 0.00030s] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7', 'pending', '2025-10-15 09:47:43.020056', '2025-10-15 09:47:43.028560', None, None, '{}', 0)
-[generated in 0.00030s] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7', 'pending', '2025-10-15 09:47:43.020056', '2025-10-15 09:47:43.028560', None, None, '{}', 0)
-2025-10-15 15:17:43,029 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:12,501 INFO sqlalchemy.engine.Engine [generated in 0.00036s] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf', 'pending', '2025-10-15 17:24:12.493558', '2025-10-15 17:24:12.500909', None, None, '{}', 0)
+[generated in 0.00036s] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf', 'pending', '2025-10-15 17:24:12.493558', '2025-10-15 17:24:12.500909', None, None, '{}', 0)
+2025-10-15 22:54:12,503 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:17:43,075 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:12,510 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:43,077 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:12,511 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:17:43,077 INFO sqlalchemy.engine.Engine [generated in 0.00015s] (32,)
-[generated in 0.00015s] (32,)
-2025-10-15 15:17:43,078 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:12,511 INFO sqlalchemy.engine.Engine [generated in 0.00015s] (57,)
+[generated in 0.00015s] (57,)
+2025-10-15 22:54:12,513 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:17:43,078 INFO sqlalchemy.engine.Engine [generated in 0.00010s] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[generated in 0.00010s] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-2025-10-15 15:17:43,080 INFO sqlalchemy.engine.Engine UPDATE jobs SET status=?, updated_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:12,513 INFO sqlalchemy.engine.Engine [generated in 0.00012s] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[generated in 0.00012s] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+2025-10-15 22:54:12,515 INFO sqlalchemy.engine.Engine UPDATE jobs SET status=?, updated_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET status=?, updated_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:17:43,080 INFO sqlalchemy.engine.Engine [generated in 0.00013s] ('processing', '2025-10-15 09:47:43.080379', 10, 32)
-[generated in 0.00013s] ('processing', '2025-10-15 09:47:43.080379', 10, 32)
-2025-10-15 15:17:43,081 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:12,515 INFO sqlalchemy.engine.Engine [generated in 0.00021s] ('processing', '2025-10-15 17:24:12.515570', 10, 57)
+[generated in 0.00021s] ('processing', '2025-10-15 17:24:12.515570', 10, 57)
+2025-10-15 22:54:12,516 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:17:43,094 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:12,522 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:43,095 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:12,522 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:17:43,095 INFO sqlalchemy.engine.Engine [cached since 0.01809s ago] (32,)
-[cached since 0.01809s ago] (32,)
-[2m2025-10-15T09:47:43.096301Z[0m [[32m[1minfo     [0m] [1mIngesting file: SBI CREDIT CARDCC.pdf[0m [[34m[1mapp.core.document.ingestion[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:43.097542Z[0m [[32m[1minfo     [0m] [1mDocument ingested: ea3f19f7-dfaa-4ad3-82fc-d017b04f0cc5[0m [[34m[1mapp.core.document.ingestion[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-2025-10-15 15:17:43,097 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:12,522 INFO sqlalchemy.engine.Engine [cached since 0.01118s ago] (57,)
+[cached since 0.01118s ago] (57,)
+[2m2025-10-15T17:24:12.523127Z[0m [[32m[1minfo     [0m] [1mIngesting file: SBI CREDIT CARDCC.pdf[0m [[34m[1mapp.core.document.ingestion[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:12.523950Z[0m [[32m[1minfo     [0m] [1mDocument ingested: 8d43562c-636c-473c-a521-51fe6ad63885[0m [[34m[1mapp.core.document.ingestion[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+2025-10-15 22:54:12,524 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:17:43,098 INFO sqlalchemy.engine.Engine [cached since 0.01921s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[cached since 0.01921s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-2025-10-15 15:17:43,099 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:12,524 INFO sqlalchemy.engine.Engine [cached since 0.01059s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[cached since 0.01059s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+2025-10-15 22:54:12,525 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:17:43,099 INFO sqlalchemy.engine.Engine [generated in 0.00014s] ('2025-10-15 09:47:43.098993', 20, 32)
-[generated in 0.00014s] ('2025-10-15 09:47:43.098993', 20, 32)
-2025-10-15 15:17:43,099 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:12,525 INFO sqlalchemy.engine.Engine [generated in 0.00013s] ('2025-10-15 17:24:12.525216', 20, 57)
+[generated in 0.00013s] ('2025-10-15 17:24:12.525216', 20, 57)
+2025-10-15 22:54:12,525 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:17:43,112 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:12,533 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:43,113 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:12,534 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:17:43,113 INFO sqlalchemy.engine.Engine [cached since 0.03592s ago] (32,)
-[cached since 0.03592s ago] (32,)
-[2m2025-10-15T09:47:43.116005Z[0m [[32m[1minfo     [0m] [1mSaved file to data/uploads/7b5fb209-fba5-4aac-9e52-95b61d711bb7.pdf[0m [[34m[1mapp.storage.local_storage[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-2025-10-15 15:17:43,117 INFO sqlalchemy.engine.Engine INSERT INTO documents (job_id, filename, file_hash, file_size, storage_path, issuer, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2025-10-15 22:54:12,534 INFO sqlalchemy.engine.Engine [cached since 0.02288s ago] (57,)
+[cached since 0.02288s ago] (57,)
+[2m2025-10-15T17:24:12.536360Z[0m [[32m[1minfo     [0m] [1mSaved file to data/uploads/cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf.pdf[0m [[34m[1mapp.storage.local_storage[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+2025-10-15 22:54:12,537 INFO sqlalchemy.engine.Engine INSERT INTO documents (job_id, filename, file_hash, file_size, storage_path, issuer, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
 INSERT INTO documents (job_id, filename, file_hash, file_size, storage_path, issuer, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
-2025-10-15 15:17:43,118 INFO sqlalchemy.engine.Engine [generated in 0.00018s] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7', 'SBI CREDIT CARDCC.pdf', 'a72fd34a64499d541b2aabf448823fbacb8007491c67e541dcf35e4b0a5dcb98', 779153, 'data/uploads/7b5fb209-fba5-4aac-9e52-95b61d711bb7.pdf', 'unknown', '2025-10-15 09:47:43.117886')
-[generated in 0.00018s] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7', 'SBI CREDIT CARDCC.pdf', 'a72fd34a64499d541b2aabf448823fbacb8007491c67e541dcf35e4b0a5dcb98', 779153, 'data/uploads/7b5fb209-fba5-4aac-9e52-95b61d711bb7.pdf', 'unknown', '2025-10-15 09:47:43.117886')
-2025-10-15 15:17:43,118 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:12,537 INFO sqlalchemy.engine.Engine [generated in 0.00016s] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf', 'SBI CREDIT CARDCC.pdf', 'a72fd34a64499d541b2aabf448823fbacb8007491c67e541dcf35e4b0a5dcb98', 779153, 'data/uploads/cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf.pdf', 'unknown', '2025-10-15 17:24:12.537287')
+[generated in 0.00016s] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf', 'SBI CREDIT CARDCC.pdf', 'a72fd34a64499d541b2aabf448823fbacb8007491c67e541dcf35e4b0a5dcb98', 779153, 'data/uploads/cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf.pdf', 'unknown', '2025-10-15 17:24:12.537287')
+2025-10-15 22:54:12,538 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:17:43,131 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:12,543 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:43,132 INFO sqlalchemy.engine.Engine SELECT documents.id, documents.job_id, documents.filename, documents.file_hash, documents.file_size, documents.storage_path, documents.issuer, documents.created_at 
+2025-10-15 22:54:12,543 INFO sqlalchemy.engine.Engine SELECT documents.id, documents.job_id, documents.filename, documents.file_hash, documents.file_size, documents.storage_path, documents.issuer, documents.created_at 
 FROM documents 
 WHERE documents.id = ?
 SELECT documents.id, documents.job_id, documents.filename, documents.file_hash, documents.file_size, documents.storage_path, documents.issuer, documents.created_at 
 FROM documents 
 WHERE documents.id = ?
-2025-10-15 15:17:43,132 INFO sqlalchemy.engine.Engine [generated in 0.00013s] (29,)
-[generated in 0.00013s] (29,)
-2025-10-15 15:17:43,133 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:12,543 INFO sqlalchemy.engine.Engine [generated in 0.00012s] (53,)
+[generated in 0.00012s] (53,)
+2025-10-15 22:54:12,544 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:17:43,133 INFO sqlalchemy.engine.Engine [cached since 0.05499s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[cached since 0.05499s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-2025-10-15 15:17:43,134 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:12,544 INFO sqlalchemy.engine.Engine [cached since 0.03117s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[cached since 0.03117s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+2025-10-15 22:54:12,545 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:17:43,134 INFO sqlalchemy.engine.Engine [cached since 0.0357s ago] ('2025-10-15 09:47:43.134582', 30, 32)
-[cached since 0.0357s ago] ('2025-10-15 09:47:43.134582', 30, 32)
-2025-10-15 15:17:43,135 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:12,545 INFO sqlalchemy.engine.Engine [cached since 0.02053s ago] ('2025-10-15 17:24:12.545627', 30, 57)
+[cached since 0.02053s ago] ('2025-10-15 17:24:12.545627', 30, 57)
+2025-10-15 22:54:12,546 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:17:43,149 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:12,551 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:43,150 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:12,551 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:17:43,150 INFO sqlalchemy.engine.Engine [cached since 0.0731s ago] (32,)
-[cached since 0.0731s ago] (32,)
-[2m2025-10-15T09:47:43.150964Z[0m [[32m[1minfo     [0m] [1mStarting extraction for job 7b5fb209-fba5-4aac-9e52-95b61d711bb7[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:43.151157Z[0m [[32m[1minfo     [0m] [1mStarting extraction orchestration[0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
+2025-10-15 22:54:12,551 INFO sqlalchemy.engine.Engine [cached since 0.04036s ago] (57,)
+[cached since 0.04036s ago] (57,)
+[2m2025-10-15T17:24:12.552665Z[0m [[32m[1minfo     [0m] [1mStarting extraction for job cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:12.552878Z[0m [[32m[1minfo     [0m] [1mStarting extraction orchestration[0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
 Extracting text from PDF bytes
 Extracted 32449 characters from 7 pages. Scanned: False
-[2m2025-10-15T09:47:43.186852Z[0m [[32m[1minfo     [0m] [1mPDF quality score: 0.95       [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:43.187020Z[0m [[32m[1minfo     [0m] [1mClassifying document issuer   [0m [[34m[1mapp.core.document.classifier[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
+[2m2025-10-15T17:24:12.585828Z[0m [[32m[1minfo     [0m] [1mPDF quality score: 0.95       [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:12.585946Z[0m [[32m[1minfo     [0m] [1mClassifying document issuer   [0m [[34m[1mapp.core.document.classifier[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
 Extracting text from PDF bytes
 Extracted 32449 characters from 7 pages. Scanned: False
-[2m2025-10-15T09:47:43.216885Z[0m [[32m[1minfo     [0m] [1mDetected issuer: sbi (confidence: 0.96)[0m [[34m[1mapp.core.document.classifier[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:43.217013Z[0m [[32m[1minfo     [0m] [1mDetected issuer: sbi          [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:43.217147Z[0m [[32m[1minfo     [0m] [1mSelecting parser for document [0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
+[2m2025-10-15T17:24:12.613168Z[0m [[32m[1minfo     [0m] [1mDetected issuer: sbi (confidence: 0.96)[0m [[34m[1mapp.core.document.classifier[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:12.613298Z[0m [[32m[1minfo     [0m] [1mDetected issuer: sbi          [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:12.613411Z[0m [[32m[1minfo     [0m] [1mSelecting parser for document [0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
 Extracting text from PDF bytes
 Extracted 32449 characters from 7 pages. Scanned: False
-[2m2025-10-15T09:47:43.243167Z[0m [[32m[1minfo     [0m] [1mUsing issuer hint: sbi        [0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:43.244159Z[0m [[32m[1minfo     [0m] [1mMatched SBIParser (confidence: 0.87)[0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:43.244265Z[0m [[32m[1minfo     [0m] [1mSelected parser: SBIParser    [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
+[2m2025-10-15T17:24:12.639734Z[0m [[32m[1minfo     [0m] [1mUsing issuer hint: sbi        [0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:12.640754Z[0m [[32m[1minfo     [0m] [1mMatched SBIParser (confidence: 0.87)[0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:12.640857Z[0m [[32m[1minfo     [0m] [1mSelected parser: SBIParser    [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
 Extracting text from PDF bytes
 Extracted 32449 characters from 7 pages. Scanned: False
 Starting field extraction from PDF bytes
@@ -165,44 +165,44 @@ Analyzing document layout
 Layout analysis complete: 15 regions, 14 fields found
 Step 4: Extracting tables
 Extracting tables from PDF bytes (method: auto)
-2025-10-15T15:17:44 - INFO - Processing page-1
+2025-10-15T22:54:13 - INFO - Processing page-1
 Processing page-1
-2025-10-15T15:17:45 - INFO - Processing page-2
+2025-10-15T22:54:14 - INFO - Processing page-2
 Processing page-2
-2025-10-15T15:17:45 - INFO - Processing page-3
+2025-10-15T22:54:15 - INFO - Processing page-3
 Processing page-3
 /home/ghost/.local/lib/python3.10/site-packages/camelot/parsers/lattice.py:411: UserWarning: page-3 is image-based, camelot only works on text-based pages.
   warnings.warn(
-2025-10-15T15:17:45 - INFO - Processing page-4
+2025-10-15T22:54:15 - INFO - Processing page-4
 Processing page-4
 /home/ghost/.local/lib/python3.10/site-packages/camelot/parsers/lattice.py:411: UserWarning: page-4 is image-based, camelot only works on text-based pages.
   warnings.warn(
-2025-10-15T15:17:46 - INFO - Processing page-5
+2025-10-15T22:54:15 - INFO - Processing page-5
 Processing page-5
-2025-10-15T15:17:48 - INFO - Processing page-6
+2025-10-15T22:54:17 - INFO - Processing page-6
 Processing page-6
-2025-10-15T15:17:49 - INFO - Processing page-7
+2025-10-15T22:54:19 - INFO - Processing page-7
 Processing page-7
 Found 18 tables with lattice method
-2025-10-15T15:17:51 - INFO - Processing page-1
+2025-10-15T22:54:21 - INFO - Processing page-1
 Processing page-1
-2025-10-15T15:17:52 - INFO - Processing page-2
+2025-10-15T22:54:21 - INFO - Processing page-2
 Processing page-2
-2025-10-15T15:17:52 - INFO - Processing page-3
+2025-10-15T22:54:21 - INFO - Processing page-3
 Processing page-3
 /home/ghost/.local/lib/python3.10/site-packages/camelot/parsers/stream.py:448: UserWarning: page-3 is image-based, camelot only works on text-based pages.
   warnings.warn(
-2025-10-15T15:17:52 - INFO - Processing page-4
+2025-10-15T22:54:21 - INFO - Processing page-4
 Processing page-4
 /home/ghost/.local/lib/python3.10/site-packages/camelot/parsers/stream.py:448: UserWarning: page-4 is image-based, camelot only works on text-based pages.
   warnings.warn(
-2025-10-15T15:17:52 - INFO - Processing page-5
+2025-10-15T22:54:22 - INFO - Processing page-5
 Processing page-5
-2025-10-15T15:17:53 - INFO - Processing page-6
+2025-10-15T22:54:22 - INFO - Processing page-6
 Processing page-6
 /home/ghost/.local/lib/python3.10/site-packages/camelot/parsers/stream.py:365: UserWarning: No tables found in table area 2
   warnings.warn(f"No tables found in table area {table_idx + 1}")
-2025-10-15T15:17:53 - INFO - Processing page-7
+2025-10-15T22:54:23 - INFO - Processing page-7
 Processing page-7
 Found 9 tables with stream method
 /home/ghost/cc-statement-parser/backend/app/core/extraction/table_extractor.py:297: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
@@ -259,454 +259,466 @@ Could not identify columns in table 17
 Extracted 2 tables with 2 transactions
 Step 5: Mapping fields
 Field extraction complete: 2 transactions, 8 fields
-[2m2025-10-15T09:47:53.964685Z[0m [[32m[1minfo     [0m] [1mParsing with SBIParser        [0m [[34m[1mapp.core.parsers.base[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:53.989581Z[0m [[32m[1minfo     [0m] [1mSuccessfully extracted 5 fields[0m [[34m[1mapp.core.parsers.base[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:53.989792Z[0m [[32m[1minfo     [0m] [1mValidation result: valid=False, errors=3, warnings=0[0m [[34m[1mapp.core.validation.schema_validator[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:53.989955Z[0m [[32m[1minfo     [0m] [1mExtraction complete: 5 fields, confidence=0.79, errors=3[0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-2025-10-15 15:17:53,990 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+[2m2025-10-15T17:24:23.411448Z[0m [[32m[1minfo     [0m] [1mUsing spatial-aware extraction for SBI Card[0m [[34m[1mapp.core.parsers.sbi_parser[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:23.419844Z[0m [[32m[1minfo     [0m] [1mSpatial extraction completed: 10 fields[0m [[34m[1mapp.core.parsers.sbi_parser[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:23.420083Z[0m [[32m[1minfo     [0m] [1mValidation result: valid=True, errors=0, warnings=0[0m [[34m[1mapp.core.validation.schema_validator[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:23.421306Z[0m [[32m[1minfo     [0m] [1mExtraction complete: 10 fields, confidence=0.96, errors=0[0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+2025-10-15 22:54:23,421 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:17:53,990 INFO sqlalchemy.engine.Engine [cached since 10.91s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[cached since 10.91s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-2025-10-15 15:17:53,991 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:23,421 INFO sqlalchemy.engine.Engine [cached since 10.91s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[cached since 10.91s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+2025-10-15 22:54:23,423 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:17:53,991 INFO sqlalchemy.engine.Engine [cached since 10.89s ago] ('2025-10-15 09:47:53.991317', 80, 32)
-[cached since 10.89s ago] ('2025-10-15 09:47:53.991317', 80, 32)
-2025-10-15 15:17:53,991 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:23,423 INFO sqlalchemy.engine.Engine [cached since 10.9s ago] ('2025-10-15 17:24:23.423096', 80, 57)
+[cached since 10.9s ago] ('2025-10-15 17:24:23.423096', 80, 57)
+2025-10-15 22:54:23,423 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:17:54,000 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:23,430 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:54,000 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:23,431 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:17:54,000 INFO sqlalchemy.engine.Engine [cached since 10.92s ago] (32,)
-[cached since 10.92s ago] (32,)
-2025-10-15 15:17:54,001 INFO sqlalchemy.engine.Engine INSERT INTO results (job_id, extraction_result, created_at) VALUES (?, ?, ?)
+2025-10-15 22:54:23,431 INFO sqlalchemy.engine.Engine [cached since 10.92s ago] (57,)
+[cached since 10.92s ago] (57,)
+2025-10-15 22:54:23,432 INFO sqlalchemy.engine.Engine INSERT INTO results (job_id, extraction_result, created_at) VALUES (?, ?, ?)
 INSERT INTO results (job_id, extraction_result, created_at) VALUES (?, ?, ?)
-2025-10-15 15:17:54,001 INFO sqlalchemy.engine.Engine [generated in 0.00018s] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7', '{"id": "26f9dc9c-e1c0-4ad5-b01c-87a03cc1f778", "job_id": "", "document_id": "", "issuer": "sbi", "fields": {"card_type": {"field_type": "card_type",  ... (1717 characters truncated) ... _score": 0.95, "page_count": 7, "parser_used": "SBIParser"}, "created_at": "2025-10-15T09:47:53.964812", "confidence_score": 0.924, "field_count": 5}', '2025-10-15 09:47:54.001859')
-[generated in 0.00018s] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7', '{"id": "26f9dc9c-e1c0-4ad5-b01c-87a03cc1f778", "job_id": "", "document_id": "", "issuer": "sbi", "fields": {"card_type": {"field_type": "card_type",  ... (1717 characters truncated) ... _score": 0.95, "page_count": 7, "parser_used": "SBIParser"}, "created_at": "2025-10-15T09:47:53.964812", "confidence_score": 0.924, "field_count": 5}', '2025-10-15 09:47:54.001859')
-2025-10-15 15:17:54,002 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:23,432 INFO sqlalchemy.engine.Engine [generated in 0.00018s] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf', '{"id": "581ff76d-34bb-48cd-b328-8da4ba9a2e28", "job_id": "", "document_id": "", "issuer": "sbi", "fields": {"card_last_4_digits": {"field_type": "car ... (2794 characters truncated) ... score": 0.95, "page_count": 7, "parser_used": "SBIParser"}, "created_at": "2025-10-15T17:24:23.411540", "confidence_score": 0.945, "field_count": 10}', '2025-10-15 17:24:23.432634')
+[generated in 0.00018s] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf', '{"id": "581ff76d-34bb-48cd-b328-8da4ba9a2e28", "job_id": "", "document_id": "", "issuer": "sbi", "fields": {"card_last_4_digits": {"field_type": "car ... (2794 characters truncated) ... score": 0.95, "page_count": 7, "parser_used": "SBIParser"}, "created_at": "2025-10-15T17:24:23.411540", "confidence_score": 0.945, "field_count": 10}', '2025-10-15 17:24:23.432634')
+2025-10-15 22:54:23,433 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:17:54,009 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:23,440 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:54,010 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
+2025-10-15 22:54:23,441 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.id = ?
 SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.id = ?
-2025-10-15 15:17:54,010 INFO sqlalchemy.engine.Engine [generated in 0.00011s] (23,)
-[generated in 0.00011s] (23,)
-2025-10-15 15:17:54,011 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:23,441 INFO sqlalchemy.engine.Engine [generated in 0.00011s] (46,)
+[generated in 0.00011s] (46,)
+2025-10-15 22:54:23,442 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:17:54,011 INFO sqlalchemy.engine.Engine [cached since 10.93s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[cached since 10.93s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-2025-10-15 15:17:54,012 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:23,442 INFO sqlalchemy.engine.Engine [cached since 10.93s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[cached since 10.93s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+2025-10-15 22:54:23,443 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:17:54,012 INFO sqlalchemy.engine.Engine [cached since 10.91s ago] ('2025-10-15 09:47:54.012363', 95, 32)
-[cached since 10.91s ago] ('2025-10-15 09:47:54.012363', 95, 32)
-2025-10-15 15:17:54,012 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:23,443 INFO sqlalchemy.engine.Engine [cached since 10.92s ago] ('2025-10-15 17:24:23.442982', 95, 57)
+[cached since 10.92s ago] ('2025-10-15 17:24:23.442982', 95, 57)
+2025-10-15 22:54:23,443 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:17:54,018 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:23,449 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:54,018 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:23,449 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:17:54,018 INFO sqlalchemy.engine.Engine [cached since 10.94s ago] (32,)
-[cached since 10.94s ago] (32,)
-2025-10-15 15:17:54,019 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:23,449 INFO sqlalchemy.engine.Engine [cached since 10.94s ago] (57,)
+[cached since 10.94s ago] (57,)
+2025-10-15 22:54:23,450 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:17:54,019 INFO sqlalchemy.engine.Engine [cached since 10.94s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[cached since 10.94s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-2025-10-15 15:17:54,020 INFO sqlalchemy.engine.Engine UPDATE jobs SET status=?, updated_at=?, completed_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:23,450 INFO sqlalchemy.engine.Engine [cached since 10.94s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[cached since 10.94s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+2025-10-15 22:54:23,451 INFO sqlalchemy.engine.Engine UPDATE jobs SET status=?, updated_at=?, completed_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET status=?, updated_at=?, completed_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:17:54,020 INFO sqlalchemy.engine.Engine [generated in 0.00014s] ('completed', '2025-10-15 09:47:54.020030', '2025-10-15 09:47:54.019069', 100, 32)
-[generated in 0.00014s] ('completed', '2025-10-15 09:47:54.020030', '2025-10-15 09:47:54.019069', 100, 32)
-2025-10-15 15:17:54,020 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:23,451 INFO sqlalchemy.engine.Engine [generated in 0.00013s] ('completed', '2025-10-15 17:24:23.451639', '2025-10-15 17:24:23.450405', 100, 57)
+[generated in 0.00013s] ('completed', '2025-10-15 17:24:23.451639', '2025-10-15 17:24:23.450405', 100, 57)
+2025-10-15 22:54:23,452 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:17:54,026 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:23,457 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:54,027 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:23,458 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:17:54,027 INFO sqlalchemy.engine.Engine [cached since 10.95s ago] (32,)
-[cached since 10.95s ago] (32,)
-[2m2025-10-15T09:47:54.027574Z[0m [[32m[1minfo     [0m] [1mParse completed successfully for job 7b5fb209-fba5-4aac-9e52-95b61d711bb7[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-[2m2025-10-15T09:47:54.027990Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': 'c69a41dc-51c9-491c-9886-4925a2f03524', 'duration': '11.019s', 'status_code': 200}[0m [36mrequest_id[0m=[35mc69a41dc-51c9-491c-9886-4925a2f03524[0m
-INFO:     127.0.0.1:39528 - "POST /api/v1/parse HTTP/1.1" 200 OK
-2025-10-15 15:17:54,028 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-10-15 22:54:23,458 INFO sqlalchemy.engine.Engine [cached since 10.95s ago] (57,)
+[cached since 10.95s ago] (57,)
+[2m2025-10-15T17:24:23.458949Z[0m [[32m[1minfo     [0m] [1mParse completed successfully for job cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+[2m2025-10-15T17:24:23.459371Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '36ffba17-871c-488d-918b-2e88c794b634', 'duration': '10.975s', 'status_code': 200}[0m [36mrequest_id[0m=[35m36ffba17-871c-488d-918b-2e88c794b634[0m
+INFO:     127.0.0.1:55518 - "POST /api/v1/parse HTTP/1.1" 200 OK
+2025-10-15 22:54:23,459 INFO sqlalchemy.engine.Engine ROLLBACK
 ROLLBACK
-[2m2025-10-15T09:47:54.046780Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': 'fbe71078-f08f-48c5-aa9d-8a7425ca89a3', 'method': 'GET', 'path': '/api/v1/jobs/7b5fb209-fba5-4aac-9e52-95b61d711bb7'}[0m [36mrequest_id[0m=[35mfbe71078-f08f-48c5-aa9d-8a7425ca89a3[0m
-2025-10-15 15:17:54,048 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2m2025-10-15T17:24:23.478085Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '5af19ed9-8fce-4721-a667-6184277e5678', 'method': 'GET', 'path': '/api/v1/jobs/cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf'}[0m [36mrequest_id[0m=[35m5af19ed9-8fce-4721-a667-6184277e5678[0m
+2025-10-15 22:54:23,479 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:54,048 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:23,479 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:17:54,048 INFO sqlalchemy.engine.Engine [cached since 10.97s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[cached since 10.97s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-2025-10-15 15:17:54,049 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
+2025-10-15 22:54:23,479 INFO sqlalchemy.engine.Engine [cached since 10.97s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[cached since 10.97s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+2025-10-15 22:54:23,481 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.job_id = ?
 SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.job_id = ?
-2025-10-15 15:17:54,049 INFO sqlalchemy.engine.Engine [generated in 0.00013s] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[generated in 0.00013s] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[2m2025-10-15T09:47:54.050723Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': 'fbe71078-f08f-48c5-aa9d-8a7425ca89a3', 'duration': '0.004s', 'status_code': 200}[0m [36mrequest_id[0m=[35mfbe71078-f08f-48c5-aa9d-8a7425ca89a3[0m
-INFO:     127.0.0.1:53464 - "GET /api/v1/jobs/7b5fb209-fba5-4aac-9e52-95b61d711bb7 HTTP/1.1" 200 OK
-2025-10-15 15:17:54,051 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-10-15 22:54:23,481 INFO sqlalchemy.engine.Engine [generated in 0.00019s] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[generated in 0.00019s] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[2m2025-10-15T17:24:23.482594Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '5af19ed9-8fce-4721-a667-6184277e5678', 'duration': '0.005s', 'status_code': 200}[0m [36mrequest_id[0m=[35m5af19ed9-8fce-4721-a667-6184277e5678[0m
+INFO:     127.0.0.1:53168 - "GET /api/v1/jobs/cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf HTTP/1.1" 200 OK
+2025-10-15 22:54:23,483 INFO sqlalchemy.engine.Engine ROLLBACK
 ROLLBACK
-[2m2025-10-15T09:47:54.052963Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '50e3a0f4-bf6d-4d93-a938-05fa266bb1d6', 'method': 'GET', 'path': '/api/v1/jobs/7b5fb209-fba5-4aac-9e52-95b61d711bb7'}[0m [36mrequest_id[0m=[35m50e3a0f4-bf6d-4d93-a938-05fa266bb1d6[0m
-2025-10-15 15:17:54,054 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2m2025-10-15T17:24:23.486075Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '5a6b87df-15d3-4d44-9469-d8f371e2d6b5', 'method': 'GET', 'path': '/api/v1/jobs/cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf'}[0m [36mrequest_id[0m=[35m5a6b87df-15d3-4d44-9469-d8f371e2d6b5[0m
+2025-10-15 22:54:23,487 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:17:54,054 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:23,487 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:17:54,054 INFO sqlalchemy.engine.Engine [cached since 10.98s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[cached since 10.98s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-2025-10-15 15:17:54,055 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
+2025-10-15 22:54:23,487 INFO sqlalchemy.engine.Engine [cached since 10.97s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[cached since 10.97s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+2025-10-15 22:54:23,488 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.job_id = ?
 SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.job_id = ?
-2025-10-15 15:17:54,055 INFO sqlalchemy.engine.Engine [cached since 0.005971s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[cached since 0.005971s ago] ('7b5fb209-fba5-4aac-9e52-95b61d711bb7',)
-[2m2025-10-15T09:47:54.056779Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '50e3a0f4-bf6d-4d93-a938-05fa266bb1d6', 'duration': '0.004s', 'status_code': 200}[0m [36mrequest_id[0m=[35m50e3a0f4-bf6d-4d93-a938-05fa266bb1d6[0m
-INFO:     127.0.0.1:53478 - "GET /api/v1/jobs/7b5fb209-fba5-4aac-9e52-95b61d711bb7 HTTP/1.1" 200 OK
-2025-10-15 15:17:54,057 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-10-15 22:54:23,488 INFO sqlalchemy.engine.Engine [cached since 0.007333s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[cached since 0.007333s ago] ('cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf',)
+[2m2025-10-15T17:24:23.489435Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '5a6b87df-15d3-4d44-9469-d8f371e2d6b5', 'duration': '0.003s', 'status_code': 200}[0m [36mrequest_id[0m=[35m5a6b87df-15d3-4d44-9469-d8f371e2d6b5[0m
+INFO:     127.0.0.1:53172 - "GET /api/v1/jobs/cb3a8791-56e7-4d7c-b2fe-40cd3b657ddf HTTP/1.1" 200 OK
+2025-10-15 22:54:23,489 INFO sqlalchemy.engine.Engine ROLLBACK
 ROLLBACK
-[2m2025-10-15T09:49:18.034495Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '24f33af7-0d36-4f44-ac5f-311a7c90d050', 'method': 'POST', 'path': '/api/v1/parse'}[0m [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:18.036106Z[0m [[32m[1minfo     [0m] [1mReceived file upload: HDFCCCSAMPLE.pdf[0m [[34m[1mapp.api.v1.endpoints.parse[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
+[2m2025-10-15T17:24:38.472133Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': 'a592c5c3-e4f3-405f-91f1-fdddbce1b8db', 'method': 'POST', 'path': '/api/v1/parse'}[0m [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:38.477618Z[0m [[32m[1minfo     [0m] [1mReceived file upload: AXISCCSAMPLE.pdf[0m [[34m[1mapp.api.v1.endpoints.parse[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
 Tesseract may not be properly installed: tesseract is not installed or it's not in your PATH. See README file for more information.
-[2m2025-10-15T09:49:18.037294Z[0m [[32m[1minfo     [0m] [1mStarting parse for file: HDFCCCSAMPLE.pdf[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-2025-10-15 15:19:18,037 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2m2025-10-15T17:24:38.479135Z[0m [[32m[1minfo     [0m] [1mStarting parse for file: AXISCCSAMPLE.pdf[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+2025-10-15 22:54:38,479 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:18,038 INFO sqlalchemy.engine.Engine INSERT INTO jobs (job_id, status, created_at, updated_at, completed_at, error, metadata, progress) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2025-10-15 22:54:38,479 INFO sqlalchemy.engine.Engine INSERT INTO jobs (job_id, status, created_at, updated_at, completed_at, error, metadata, progress) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 INSERT INTO jobs (job_id, status, created_at, updated_at, completed_at, error, metadata, progress) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-2025-10-15 15:19:18,038 INFO sqlalchemy.engine.Engine [cached since 95.01s ago] ('06689d96-62ee-4868-8095-010ede316754', 'pending', '2025-10-15 09:49:18.037389', '2025-10-15 09:49:18.038056', None, None, '{}', 0)
-[cached since 95.01s ago] ('06689d96-62ee-4868-8095-010ede316754', 'pending', '2025-10-15 09:49:18.037389', '2025-10-15 09:49:18.038056', None, None, '{}', 0)
-2025-10-15 15:19:18,039 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:38,479 INFO sqlalchemy.engine.Engine [cached since 25.98s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0', 'pending', '2025-10-15 17:24:38.479223', '2025-10-15 17:24:38.479777', None, None, '{}', 0)
+[cached since 25.98s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0', 'pending', '2025-10-15 17:24:38.479223', '2025-10-15 17:24:38.479777', None, None, '{}', 0)
+2025-10-15 22:54:38,480 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:19:18,045 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:38,487 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:18,046 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:38,487 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:19:18,046 INFO sqlalchemy.engine.Engine [cached since 94.97s ago] (33,)
-[cached since 94.97s ago] (33,)
-2025-10-15 15:19:18,047 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:38,487 INFO sqlalchemy.engine.Engine [cached since 25.98s ago] (58,)
+[cached since 25.98s ago] (58,)
+2025-10-15 22:54:38,488 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:19:18,047 INFO sqlalchemy.engine.Engine [cached since 94.97s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[cached since 94.97s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-2025-10-15 15:19:18,048 INFO sqlalchemy.engine.Engine UPDATE jobs SET status=?, updated_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:38,489 INFO sqlalchemy.engine.Engine [cached since 25.98s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[cached since 25.98s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+2025-10-15 22:54:38,489 INFO sqlalchemy.engine.Engine UPDATE jobs SET status=?, updated_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET status=?, updated_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:19:18,048 INFO sqlalchemy.engine.Engine [cached since 94.97s ago] ('processing', '2025-10-15 09:49:18.048567', 10, 33)
-[cached since 94.97s ago] ('processing', '2025-10-15 09:49:18.048567', 10, 33)
-2025-10-15 15:19:18,049 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:38,489 INFO sqlalchemy.engine.Engine [cached since 25.97s ago] ('processing', '2025-10-15 17:24:38.489721', 10, 58)
+[cached since 25.97s ago] ('processing', '2025-10-15 17:24:38.489721', 10, 58)
+2025-10-15 22:54:38,490 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:19:18,054 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:38,495 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:18,054 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:38,495 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:19:18,055 INFO sqlalchemy.engine.Engine [cached since 94.98s ago] (33,)
-[cached since 94.98s ago] (33,)
-[2m2025-10-15T09:49:18.055812Z[0m [[32m[1minfo     [0m] [1mIngesting file: HDFCCCSAMPLE.pdf[0m [[34m[1mapp.core.document.ingestion[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:18.056285Z[0m [[32m[1minfo     [0m] [1mDocument ingested: 1d391e84-0bd8-4a8c-b973-443ca0d9c3c6[0m [[34m[1mapp.core.document.ingestion[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-2025-10-15 15:19:18,056 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:38,495 INFO sqlalchemy.engine.Engine [cached since 25.98s ago] (58,)
+[cached since 25.98s ago] (58,)
+[2m2025-10-15T17:24:38.496090Z[0m [[32m[1minfo     [0m] [1mIngesting file: AXISCCSAMPLE.pdf[0m [[34m[1mapp.core.document.ingestion[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:38.497657Z[0m [[32m[1minfo     [0m] [1mDocument ingested: a93c22ae-e3a3-48bd-b45f-a4b28dd870a4[0m [[34m[1mapp.core.document.ingestion[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+2025-10-15 22:54:38,497 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:19:18,056 INFO sqlalchemy.engine.Engine [cached since 94.98s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[cached since 94.98s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-2025-10-15 15:19:18,057 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:38,498 INFO sqlalchemy.engine.Engine [cached since 25.98s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[cached since 25.98s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+2025-10-15 22:54:38,498 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:19:18,057 INFO sqlalchemy.engine.Engine [cached since 94.96s ago] ('2025-10-15 09:49:18.057312', 20, 33)
-[cached since 94.96s ago] ('2025-10-15 09:49:18.057312', 20, 33)
-2025-10-15 15:19:18,057 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:38,498 INFO sqlalchemy.engine.Engine [cached since 25.97s ago] ('2025-10-15 17:24:38.498709', 20, 58)
+[cached since 25.97s ago] ('2025-10-15 17:24:38.498709', 20, 58)
+2025-10-15 22:54:38,499 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:19:18,063 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:38,503 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:18,063 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:38,503 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:19:18,063 INFO sqlalchemy.engine.Engine [cached since 94.99s ago] (33,)
-[cached since 94.99s ago] (33,)
-[2m2025-10-15T09:49:18.064985Z[0m [[32m[1minfo     [0m] [1mSaved file to data/uploads/06689d96-62ee-4868-8095-010ede316754.pdf[0m [[34m[1mapp.storage.local_storage[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-2025-10-15 15:19:18,065 INFO sqlalchemy.engine.Engine INSERT INTO documents (job_id, filename, file_hash, file_size, storage_path, issuer, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2025-10-15 22:54:38,503 INFO sqlalchemy.engine.Engine [cached since 25.99s ago] (58,)
+[cached since 25.99s ago] (58,)
+[2m2025-10-15T17:24:38.505502Z[0m [[32m[1minfo     [0m] [1mSaved file to data/uploads/54ec7de4-0aca-4e40-a1e2-03a3ac1034b0.pdf[0m [[34m[1mapp.storage.local_storage[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+2025-10-15 22:54:38,505 INFO sqlalchemy.engine.Engine INSERT INTO documents (job_id, filename, file_hash, file_size, storage_path, issuer, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
 INSERT INTO documents (job_id, filename, file_hash, file_size, storage_path, issuer, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
-2025-10-15 15:19:18,065 INFO sqlalchemy.engine.Engine [cached since 94.95s ago] ('06689d96-62ee-4868-8095-010ede316754', 'HDFCCCSAMPLE.pdf', '8cea2f0b2f5624c9d8b571a2725fbe9081cbf7c8e597771efd37f3f474fdeceb', 56091, 'data/uploads/06689d96-62ee-4868-8095-010ede316754.pdf', 'unknown', '2025-10-15 09:49:18.065413')
-[cached since 94.95s ago] ('06689d96-62ee-4868-8095-010ede316754', 'HDFCCCSAMPLE.pdf', '8cea2f0b2f5624c9d8b571a2725fbe9081cbf7c8e597771efd37f3f474fdeceb', 56091, 'data/uploads/06689d96-62ee-4868-8095-010ede316754.pdf', 'unknown', '2025-10-15 09:49:18.065413')
-2025-10-15 15:19:18,065 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:38,505 INFO sqlalchemy.engine.Engine [cached since 25.97s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0', 'AXISCCSAMPLE.pdf', 'aca8bec053d38659e4a7c4b4286f2f31ef1a6d540aaeed5231f86c165d3833b9', 909456, 'data/uploads/54ec7de4-0aca-4e40-a1e2-03a3ac1034b0.pdf', 'unknown', '2025-10-15 17:24:38.505848')
+[cached since 25.97s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0', 'AXISCCSAMPLE.pdf', 'aca8bec053d38659e4a7c4b4286f2f31ef1a6d540aaeed5231f86c165d3833b9', 909456, 'data/uploads/54ec7de4-0aca-4e40-a1e2-03a3ac1034b0.pdf', 'unknown', '2025-10-15 17:24:38.505848')
+2025-10-15 22:54:38,506 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:19:18,071 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:38,510 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:18,072 INFO sqlalchemy.engine.Engine SELECT documents.id, documents.job_id, documents.filename, documents.file_hash, documents.file_size, documents.storage_path, documents.issuer, documents.created_at 
+2025-10-15 22:54:38,510 INFO sqlalchemy.engine.Engine SELECT documents.id, documents.job_id, documents.filename, documents.file_hash, documents.file_size, documents.storage_path, documents.issuer, documents.created_at 
 FROM documents 
 WHERE documents.id = ?
 SELECT documents.id, documents.job_id, documents.filename, documents.file_hash, documents.file_size, documents.storage_path, documents.issuer, documents.created_at 
 FROM documents 
 WHERE documents.id = ?
-2025-10-15 15:19:18,072 INFO sqlalchemy.engine.Engine [cached since 94.94s ago] (30,)
-[cached since 94.94s ago] (30,)
-2025-10-15 15:19:18,072 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:38,510 INFO sqlalchemy.engine.Engine [cached since 25.97s ago] (54,)
+[cached since 25.97s ago] (54,)
+2025-10-15 22:54:38,511 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:19:18,072 INFO sqlalchemy.engine.Engine [cached since 94.99s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[cached since 94.99s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-2025-10-15 15:19:18,073 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:38,511 INFO sqlalchemy.engine.Engine [cached since 26s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[cached since 26s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+2025-10-15 22:54:38,512 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:19:18,073 INFO sqlalchemy.engine.Engine [cached since 94.97s ago] ('2025-10-15 09:49:18.073471', 30, 33)
-[cached since 94.97s ago] ('2025-10-15 09:49:18.073471', 30, 33)
-2025-10-15 15:19:18,073 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:38,512 INFO sqlalchemy.engine.Engine [cached since 25.99s ago] ('2025-10-15 17:24:38.512110', 30, 58)
+[cached since 25.99s ago] ('2025-10-15 17:24:38.512110', 30, 58)
+2025-10-15 22:54:38,512 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:19:18,079 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:38,516 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:18,079 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:38,516 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:19:18,079 INFO sqlalchemy.engine.Engine [cached since 95s ago] (33,)
-[cached since 95s ago] (33,)
-[2m2025-10-15T09:49:18.080272Z[0m [[32m[1minfo     [0m] [1mStarting extraction for job 06689d96-62ee-4868-8095-010ede316754[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:18.080354Z[0m [[32m[1minfo     [0m] [1mStarting extraction orchestration[0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
+2025-10-15 22:54:38,517 INFO sqlalchemy.engine.Engine [cached since 26.01s ago] (58,)
+[cached since 26.01s ago] (58,)
+[2m2025-10-15T17:24:38.517474Z[0m [[32m[1minfo     [0m] [1mStarting extraction for job 54ec7de4-0aca-4e40-a1e2-03a3ac1034b0[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:38.517581Z[0m [[32m[1minfo     [0m] [1mStarting extraction orchestration[0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
 Extracting text from PDF bytes
-Extracted 3601 characters from 2 pages. Scanned: False
-[2m2025-10-15T09:49:18.088954Z[0m [[32m[1minfo     [0m] [1mPDF quality score: 0.95       [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:18.089043Z[0m [[32m[1minfo     [0m] [1mClassifying document issuer   [0m [[34m[1mapp.core.document.classifier[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
+Extracted 3260 characters from 2 pages. Scanned: False
+[2m2025-10-15T17:24:38.546919Z[0m [[32m[1minfo     [0m] [1mPDF quality score: 0.95       [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:38.547022Z[0m [[32m[1minfo     [0m] [1mClassifying document issuer   [0m [[34m[1mapp.core.document.classifier[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
 Extracting text from PDF bytes
-Extracted 3601 characters from 2 pages. Scanned: False
-[2m2025-10-15T09:49:18.097146Z[0m [[32m[1minfo     [0m] [1mDetected issuer: hdfc (confidence: 0.95)[0m [[34m[1mapp.core.document.classifier[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:18.097249Z[0m [[32m[1minfo     [0m] [1mDetected issuer: hdfc         [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:18.097324Z[0m [[32m[1minfo     [0m] [1mSelecting parser for document [0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
+Extracted 3260 characters from 2 pages. Scanned: False
+[2m2025-10-15T17:24:38.576202Z[0m [[32m[1minfo     [0m] [1mDetected issuer: axis (confidence: 0.95)[0m [[34m[1mapp.core.document.classifier[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:38.576345Z[0m [[32m[1minfo     [0m] [1mDetected issuer: axis         [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:38.576415Z[0m [[32m[1minfo     [0m] [1mSelecting parser for document [0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
 Extracting text from PDF bytes
-Extracted 3601 characters from 2 pages. Scanned: False
-[2m2025-10-15T09:49:18.105453Z[0m [[32m[1minfo     [0m] [1mUsing issuer hint: hdfc       [0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:18.106046Z[0m [[32m[1minfo     [0m] [1mMatched HDFCParser (confidence: 0.98)[0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:18.106145Z[0m [[32m[1minfo     [0m] [1mSelected parser: HDFCParser   [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
+Extracted 3260 characters from 2 pages. Scanned: False
+[2m2025-10-15T17:24:38.605310Z[0m [[32m[1minfo     [0m] [1mUsing issuer hint: axis       [0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:38.605894Z[0m [[32m[1minfo     [0m] [1mMatched AxisParser (confidence: 0.95)[0m [[34m[1mapp.core.parsers.factory[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:38.605990Z[0m [[32m[1minfo     [0m] [1mSelected parser: AxisParser   [0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
 Extracting text from PDF bytes
-Extracted 3601 characters from 2 pages. Scanned: False
+Extracted 3260 characters from 2 pages. Scanned: False
 Starting field extraction from PDF bytes
 Step 1: Extracting text
 Extracting text from PDF bytes
-Extracted 3601 characters from 2 pages. Scanned: False
+Extracted 3260 characters from 2 pages. Scanned: False
 Step 2: Skipping OCR (text-based PDF)
 Step 3: Analyzing layout
 Analyzing document layout
-Layout analysis complete: 5 regions, 8 fields found
+Layout analysis complete: 5 regions, 5 fields found
 Step 4: Extracting tables
 Extracting tables from PDF bytes (method: auto)
-2025-10-15T15:19:18 - INFO - Processing page-1
+2025-10-15T22:54:39 - INFO - Processing page-1
 Processing page-1
-2025-10-15T15:19:19 - INFO - Processing page-2
+2025-10-15T22:54:40 - INFO - Processing page-2
 Processing page-2
+/home/ghost/.local/lib/python3.10/site-packages/camelot/utils.py:740: UserWarning:   (581.4, 583.6509599999999) does not lie in column range (28.417499999999997, 580.8299999999999)
+  warnings.warn(
 Found 5 tables with lattice method
-2025-10-15T15:19:19 - INFO - Processing page-1
+2025-10-15T22:54:41 - INFO - Processing page-1
 Processing page-1
-2025-10-15T15:19:19 - INFO - Processing page-2
+2025-10-15T22:54:41 - INFO - Processing page-2
 Processing page-2
-Found 3 tables with stream method
+/home/ghost/.local/lib/python3.10/site-packages/camelot/parsers/stream.py:365: UserWarning: No tables found in table area 1
+  warnings.warn(f"No tables found in table area {table_idx + 1}")
+Found 4 tables with stream method
+/home/ghost/cc-statement-parser/backend/app/core/extraction/table_extractor.py:297: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+Could not identify columns in table 0
 /home/ghost/cc-statement-parser/backend/app/core/extraction/table_extractor.py:297: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
   df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 /home/ghost/cc-statement-parser/backend/app/core/extraction/table_extractor.py:297: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
   df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 /home/ghost/cc-statement-parser/backend/app/core/extraction/table_extractor.py:297: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
   df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+Could not identify columns in table 3
 /home/ghost/cc-statement-parser/backend/app/core/extraction/table_extractor.py:297: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
   df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-Parsed table 3 on page 1: 2 transactions
-/home/ghost/cc-statement-parser/backend/app/core/extraction/table_extractor.py:297: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
-  df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-Extracted 1 tables with 2 transactions
+Could not identify columns in table 4
+Extracted 0 tables with 0 transactions
 Step 5: Mapping fields
-Field extraction complete: 2 transactions, 7 fields
-[2m2025-10-15T09:49:20.014287Z[0m [[32m[1minfo     [0m] [1mParsing with HDFCParser       [0m [[34m[1mapp.core.parsers.base[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:20.020765Z[0m [[32m[1minfo     [0m] [1mSuccessfully extracted 5 fields[0m [[34m[1mapp.core.parsers.base[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:20.020919Z[0m [[32m[1minfo     [0m] [1mValidation result: valid=False, errors=2, warnings=0[0m [[34m[1mapp.core.validation.schema_validator[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:20.021073Z[0m [[32m[1minfo     [0m] [1mExtraction complete: 5 fields, confidence=0.79, errors=2[0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-2025-10-15 15:19:20,021 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+Field extraction complete: 0 transactions, 7 fields
+[2m2025-10-15T17:24:41.796663Z[0m [[32m[1minfo     [0m] [1mUsing detailed spatial extraction for Axis Bank[0m [[34m[1mapp.core.parsers.axis_parser[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:41.825576Z[0m [[32m[1minfo     [0m] [1mAxis spatial extraction completed: 12 fields[0m [[34m[1mapp.core.parsers.axis_parser[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:41.825847Z[0m [[32m[1minfo     [0m] [1mValidation result: valid=True, errors=0, warnings=0[0m [[34m[1mapp.core.validation.schema_validator[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:41.826179Z[0m [[32m[1minfo     [0m] [1mExtraction complete: 12 fields, confidence=0.95, errors=1[0m [[34m[1mapp.core.extraction.orchestrator[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+2025-10-15 22:54:41,826 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:19:20,021 INFO sqlalchemy.engine.Engine [cached since 96.94s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[cached since 96.94s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-2025-10-15 15:19:20,022 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:41,826 INFO sqlalchemy.engine.Engine [cached since 29.31s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[cached since 29.31s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+2025-10-15 22:54:41,827 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:19:20,022 INFO sqlalchemy.engine.Engine [cached since 96.92s ago] ('2025-10-15 09:49:20.022719', 80, 33)
-[cached since 96.92s ago] ('2025-10-15 09:49:20.022719', 80, 33)
-2025-10-15 15:19:20,023 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:41,827 INFO sqlalchemy.engine.Engine [cached since 29.3s ago] ('2025-10-15 17:24:41.827780', 80, 58)
+[cached since 29.3s ago] ('2025-10-15 17:24:41.827780', 80, 58)
+2025-10-15 22:54:41,828 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:19:20,030 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:41,835 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:20,031 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:41,835 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:19:20,031 INFO sqlalchemy.engine.Engine [cached since 96.95s ago] (33,)
-[cached since 96.95s ago] (33,)
-2025-10-15 15:19:20,031 INFO sqlalchemy.engine.Engine INSERT INTO results (job_id, extraction_result, created_at) VALUES (?, ?, ?)
+2025-10-15 22:54:41,835 INFO sqlalchemy.engine.Engine [cached since 29.32s ago] (58,)
+[cached since 29.32s ago] (58,)
+2025-10-15 22:54:41,836 INFO sqlalchemy.engine.Engine INSERT INTO results (job_id, extraction_result, created_at) VALUES (?, ?, ?)
 INSERT INTO results (job_id, extraction_result, created_at) VALUES (?, ?, ?)
-2025-10-15 15:19:20,031 INFO sqlalchemy.engine.Engine [cached since 86.03s ago] ('06689d96-62ee-4868-8095-010ede316754', '{"id": "6858ecf1-0387-4520-8524-4a489422f0f7", "job_id": "", "document_id": "", "issuer": "hdfc", "fields": {"card_last_4_digits": {"field_type": "ca ... (1711 characters truncated) ... _score": 0.95, "page_count": 2, "parser_used": "HDFCParser"}, "created_at": "2025-10-15T09:49:20.014393", "confidence_score": 0.93, "field_count": 5}', '2025-10-15 09:49:20.031874')
-[cached since 86.03s ago] ('06689d96-62ee-4868-8095-010ede316754', '{"id": "6858ecf1-0387-4520-8524-4a489422f0f7", "job_id": "", "document_id": "", "issuer": "hdfc", "fields": {"card_last_4_digits": {"field_type": "ca ... (1711 characters truncated) ... _score": 0.95, "page_count": 2, "parser_used": "HDFCParser"}, "created_at": "2025-10-15T09:49:20.014393", "confidence_score": 0.93, "field_count": 5}', '2025-10-15 09:49:20.031874')
-2025-10-15 15:19:20,032 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:41,836 INFO sqlalchemy.engine.Engine [cached since 18.4s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0', '{"id": "7e24878d-2e0a-4a45-b4df-f9c02c3c1ceb", "job_id": "", "document_id": "", "issuer": "axis", "fields": {"card_last_4_digits": {"field_type": "ca ... (3315 characters truncated) ... "page_count": 2, "parser_used": "AxisParser"}, "created_at": "2025-10-15T17:24:41.796767", "confidence_score": 0.9416666666666665, "field_count": 12}', '2025-10-15 17:24:41.836666')
+[cached since 18.4s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0', '{"id": "7e24878d-2e0a-4a45-b4df-f9c02c3c1ceb", "job_id": "", "document_id": "", "issuer": "axis", "fields": {"card_last_4_digits": {"field_type": "ca ... (3315 characters truncated) ... "page_count": 2, "parser_used": "AxisParser"}, "created_at": "2025-10-15T17:24:41.796767", "confidence_score": 0.9416666666666665, "field_count": 12}', '2025-10-15 17:24:41.836666')
+2025-10-15 22:54:41,837 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:19:20,039 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:41,844 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:20,039 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
+2025-10-15 22:54:41,844 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.id = ?
 SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.id = ?
-2025-10-15 15:19:20,039 INFO sqlalchemy.engine.Engine [cached since 86.03s ago] (24,)
-[cached since 86.03s ago] (24,)
-2025-10-15 15:19:20,040 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:41,844 INFO sqlalchemy.engine.Engine [cached since 18.4s ago] (47,)
+[cached since 18.4s ago] (47,)
+2025-10-15 22:54:41,845 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:19:20,040 INFO sqlalchemy.engine.Engine [cached since 96.96s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[cached since 96.96s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-2025-10-15 15:19:20,041 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:41,845 INFO sqlalchemy.engine.Engine [cached since 29.33s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[cached since 29.33s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+2025-10-15 22:54:41,846 INFO sqlalchemy.engine.Engine UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET updated_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:19:20,041 INFO sqlalchemy.engine.Engine [cached since 96.94s ago] ('2025-10-15 09:49:20.041252', 95, 33)
-[cached since 96.94s ago] ('2025-10-15 09:49:20.041252', 95, 33)
-2025-10-15 15:19:20,041 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:41,846 INFO sqlalchemy.engine.Engine [cached since 29.32s ago] ('2025-10-15 17:24:41.846403', 95, 58)
+[cached since 29.32s ago] ('2025-10-15 17:24:41.846403', 95, 58)
+2025-10-15 22:54:41,846 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:19:20,047 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:41,852 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:20,047 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:41,853 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:19:20,047 INFO sqlalchemy.engine.Engine [cached since 96.97s ago] (33,)
-[cached since 96.97s ago] (33,)
-2025-10-15 15:19:20,048 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:41,853 INFO sqlalchemy.engine.Engine [cached since 29.34s ago] (58,)
+[cached since 29.34s ago] (58,)
+2025-10-15 22:54:41,853 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:19:20,048 INFO sqlalchemy.engine.Engine [cached since 96.97s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[cached since 96.97s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-2025-10-15 15:19:20,048 INFO sqlalchemy.engine.Engine UPDATE jobs SET status=?, updated_at=?, completed_at=?, progress=? WHERE jobs.id = ?
+2025-10-15 22:54:41,854 INFO sqlalchemy.engine.Engine [cached since 29.34s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[cached since 29.34s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+2025-10-15 22:54:41,854 INFO sqlalchemy.engine.Engine UPDATE jobs SET status=?, updated_at=?, completed_at=?, progress=? WHERE jobs.id = ?
 UPDATE jobs SET status=?, updated_at=?, completed_at=?, progress=? WHERE jobs.id = ?
-2025-10-15 15:19:20,048 INFO sqlalchemy.engine.Engine [cached since 86.03s ago] ('completed', '2025-10-15 09:49:20.048899', '2025-10-15 09:49:20.048162', 100, 33)
-[cached since 86.03s ago] ('completed', '2025-10-15 09:49:20.048899', '2025-10-15 09:49:20.048162', 100, 33)
-2025-10-15 15:19:20,049 INFO sqlalchemy.engine.Engine COMMIT
+2025-10-15 22:54:41,854 INFO sqlalchemy.engine.Engine [cached since 18.4s ago] ('completed', '2025-10-15 17:24:41.854615', '2025-10-15 17:24:41.853790', 100, 58)
+[cached since 18.4s ago] ('completed', '2025-10-15 17:24:41.854615', '2025-10-15 17:24:41.853790', 100, 58)
+2025-10-15 22:54:41,855 INFO sqlalchemy.engine.Engine COMMIT
 COMMIT
-2025-10-15 15:19:20,054 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-10-15 22:54:41,860 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:20,055 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:41,861 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.id = ?
-2025-10-15 15:19:20,055 INFO sqlalchemy.engine.Engine [cached since 96.98s ago] (33,)
-[cached since 96.98s ago] (33,)
-[2m2025-10-15T09:49:20.056119Z[0m [[32m[1minfo     [0m] [1mParse completed successfully for job 06689d96-62ee-4868-8095-010ede316754[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-[2m2025-10-15T09:49:20.056748Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '24f33af7-0d36-4f44-ac5f-311a7c90d050', 'duration': '2.022s', 'status_code': 200}[0m [36mrequest_id[0m=[35m24f33af7-0d36-4f44-ac5f-311a7c90d050[0m
-INFO:     127.0.0.1:34644 - "POST /api/v1/parse HTTP/1.1" 200 OK
-2025-10-15 15:19:20,057 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-10-15 22:54:41,861 INFO sqlalchemy.engine.Engine [cached since 29.35s ago] (58,)
+[cached since 29.35s ago] (58,)
+[2m2025-10-15T17:24:41.861688Z[0m [[32m[1minfo     [0m] [1mParse completed successfully for job 54ec7de4-0aca-4e40-a1e2-03a3ac1034b0[0m [[34m[1mapp.services.parsing_service[0m] [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+[2m2025-10-15T17:24:41.862046Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': 'a592c5c3-e4f3-405f-91f1-fdddbce1b8db', 'duration': '3.390s', 'status_code': 200}[0m [36mrequest_id[0m=[35ma592c5c3-e4f3-405f-91f1-fdddbce1b8db[0m
+INFO:     127.0.0.1:34746 - "POST /api/v1/parse HTTP/1.1" 200 OK
+2025-10-15 22:54:41,862 INFO sqlalchemy.engine.Engine ROLLBACK
 ROLLBACK
-[2m2025-10-15T09:49:20.073681Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '4d393260-868d-4107-8b05-a5e9e551f7d3', 'method': 'GET', 'path': '/api/v1/jobs/06689d96-62ee-4868-8095-010ede316754'}[0m [36mrequest_id[0m=[35m4d393260-868d-4107-8b05-a5e9e551f7d3[0m
-2025-10-15 15:19:20,074 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2m2025-10-15T17:24:41.879337Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': 'dea78bee-0f51-4b0f-a204-601d744edc99', 'method': 'GET', 'path': '/api/v1/jobs/54ec7de4-0aca-4e40-a1e2-03a3ac1034b0'}[0m [36mrequest_id[0m=[35mdea78bee-0f51-4b0f-a204-601d744edc99[0m
+2025-10-15 22:54:41,880 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:20,074 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:41,880 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:19:20,075 INFO sqlalchemy.engine.Engine [cached since 97s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[cached since 97s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-2025-10-15 15:19:20,075 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
+2025-10-15 22:54:41,880 INFO sqlalchemy.engine.Engine [cached since 29.37s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[cached since 29.37s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+2025-10-15 22:54:41,881 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.job_id = ?
 SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.job_id = ?
-2025-10-15 15:19:20,075 INFO sqlalchemy.engine.Engine [cached since 86.03s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[cached since 86.03s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[2m2025-10-15T09:49:20.076611Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '4d393260-868d-4107-8b05-a5e9e551f7d3', 'duration': '0.003s', 'status_code': 200}[0m [36mrequest_id[0m=[35m4d393260-868d-4107-8b05-a5e9e551f7d3[0m
-INFO:     127.0.0.1:34652 - "GET /api/v1/jobs/06689d96-62ee-4868-8095-010ede316754 HTTP/1.1" 200 OK
-2025-10-15 15:19:20,076 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-10-15 22:54:41,881 INFO sqlalchemy.engine.Engine [cached since 18.4s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[cached since 18.4s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[2m2025-10-15T17:24:41.882740Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': 'dea78bee-0f51-4b0f-a204-601d744edc99', 'duration': '0.003s', 'status_code': 200}[0m [36mrequest_id[0m=[35mdea78bee-0f51-4b0f-a204-601d744edc99[0m
+INFO:     127.0.0.1:34750 - "GET /api/v1/jobs/54ec7de4-0aca-4e40-a1e2-03a3ac1034b0 HTTP/1.1" 200 OK
+2025-10-15 22:54:41,883 INFO sqlalchemy.engine.Engine ROLLBACK
 ROLLBACK
-[2m2025-10-15T09:49:20.078533Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '03a8c401-7752-4454-b4ac-dc8a322eb7d4', 'method': 'GET', 'path': '/api/v1/jobs/06689d96-62ee-4868-8095-010ede316754'}[0m [36mrequest_id[0m=[35m03a8c401-7752-4454-b4ac-dc8a322eb7d4[0m
-2025-10-15 15:19:20,079 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+[2m2025-10-15T17:24:41.885741Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '535c1771-f1c4-427c-b68e-377c70cff5b8', 'method': 'GET', 'path': '/api/v1/jobs/54ec7de4-0aca-4e40-a1e2-03a3ac1034b0'}[0m [36mrequest_id[0m=[35m535c1771-f1c4-427c-b68e-377c70cff5b8[0m
+2025-10-15 22:54:41,886 INFO sqlalchemy.engine.Engine BEGIN (implicit)
 BEGIN (implicit)
-2025-10-15 15:19:20,079 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
+2025-10-15 22:54:41,886 INFO sqlalchemy.engine.Engine SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
 SELECT jobs.id, jobs.job_id, jobs.status, jobs.created_at, jobs.updated_at, jobs.completed_at, jobs.error, jobs.metadata, jobs.progress 
 FROM jobs 
 WHERE jobs.job_id = ?
-2025-10-15 15:19:20,079 INFO sqlalchemy.engine.Engine [cached since 97s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[cached since 97s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-2025-10-15 15:19:20,080 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
+2025-10-15 22:54:41,886 INFO sqlalchemy.engine.Engine [cached since 29.37s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[cached since 29.37s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+2025-10-15 22:54:41,887 INFO sqlalchemy.engine.Engine SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.job_id = ?
 SELECT results.id, results.job_id, results.extraction_result, results.created_at 
 FROM results 
 WHERE results.job_id = ?
-2025-10-15 15:19:20,080 INFO sqlalchemy.engine.Engine [cached since 86.03s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[cached since 86.03s ago] ('06689d96-62ee-4868-8095-010ede316754',)
-[2m2025-10-15T09:49:20.081080Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '03a8c401-7752-4454-b4ac-dc8a322eb7d4', 'duration': '0.003s', 'status_code': 200}[0m [36mrequest_id[0m=[35m03a8c401-7752-4454-b4ac-dc8a322eb7d4[0m
-INFO:     127.0.0.1:34658 - "GET /api/v1/jobs/06689d96-62ee-4868-8095-010ede316754 HTTP/1.1" 200 OK
-2025-10-15 15:19:20,081 INFO sqlalchemy.engine.Engine ROLLBACK
+2025-10-15 22:54:41,887 INFO sqlalchemy.engine.Engine [cached since 18.41s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[cached since 18.41s ago] ('54ec7de4-0aca-4e40-a1e2-03a3ac1034b0',)
+[2m2025-10-15T17:24:41.888307Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '535c1771-f1c4-427c-b68e-377c70cff5b8', 'duration': '0.003s', 'status_code': 200}[0m [36mrequest_id[0m=[35m535c1771-f1c4-427c-b68e-377c70cff5b8[0m
+INFO:     127.0.0.1:34756 - "GET /api/v1/jobs/54ec7de4-0aca-4e40-a1e2-03a3ac1034b0 HTTP/1.1" 200 OK
+2025-10-15 22:54:41,888 INFO sqlalchemy.engine.Engine ROLLBACK
 ROLLBACK
+[2m2025-10-15T17:29:19.908582Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': 'db926a74-fe8f-4751-a9ad-eab9f094af98', 'method': 'GET', 'path': '/api/v1/health'}[0m [36mrequest_id[0m=[35mdb926a74-fe8f-4751-a9ad-eab9f094af98[0m
+[2m2025-10-15T17:29:19.909555Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': 'db926a74-fe8f-4751-a9ad-eab9f094af98', 'duration': '0.001s', 'status_code': 200}[0m [36mrequest_id[0m=[35mdb926a74-fe8f-4751-a9ad-eab9f094af98[0m
+INFO:     127.0.0.1:43974 - "GET /api/v1/health HTTP/1.1" 200 OK
+[2m2025-10-15T17:29:19.917575Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '57f10dfd-efb8-4188-b9dd-64095661e5be', 'method': 'GET', 'path': '/api/v1/health'}[0m [36mrequest_id[0m=[35m57f10dfd-efb8-4188-b9dd-64095661e5be[0m
+[2m2025-10-15T17:29:19.918314Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '57f10dfd-efb8-4188-b9dd-64095661e5be', 'duration': '0.001s', 'status_code': 200}[0m [36mrequest_id[0m=[35m57f10dfd-efb8-4188-b9dd-64095661e5be[0m
+INFO:     127.0.0.1:43984 - "GET /api/v1/health HTTP/1.1" 200 OK

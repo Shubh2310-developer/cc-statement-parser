@@ -107,19 +107,30 @@ const UploadPage = () => {
 
         <div className="mt-16">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">Supported Banks</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {[
-              { name: 'HDFC Bank', icon: '🏦', color: 'primary' },
-              { name: 'ICICI Bank', icon: '🏦', color: 'primary' },
-              { name: 'Axis Bank', icon: '🏦', color: 'primary' },
-              { name: 'American Express', icon: '💳', color: 'primary' }
+              { name: 'SBI Card', logo: '/assets/logos/SBI-Logo.png', alt: 'SBI Card Logo' },
+              { name: 'HDFC Bank', logo: '/assets/logos/HDFC-Logo.png', alt: 'HDFC Bank Logo' },
+              { name: 'ICICI Bank', logo: '/assets/logos/Icici-Logo.png', alt: 'ICICI Bank Logo' },
+              { name: 'Axis Bank', logo: '/assets/logos/Axis-Logo.png', alt: 'Axis Bank Logo' },
+              { name: 'American Express', logo: '/assets/logos/Amex-Logo.png', alt: 'American Express Logo' }
             ].map((bank) => (
-              <div key={bank.name} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-3 text-center">{bank.icon}</div>
-                <div className="font-semibold text-gray-900 text-center">{bank.name}</div>
+              <div key={bank.name} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <div className="h-16 mb-4 flex items-center justify-center">
+                  <img
+                    src={bank.logo}
+                    alt={bank.alt}
+                    className="max-h-full max-w-full object-contain"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>';
+                    }}
+                  />
+                </div>
+                <div className="font-semibold text-gray-900 text-center text-sm">{bank.name}</div>
                 <div className="flex items-center justify-center mt-2">
-                  <div className="h-2 w-2 bg-success rounded-full mr-2"></div>
-                  <span className="text-sm text-gray-600">Active</span>
+                  <div className="h-2 w-2 bg-success rounded-full mr-2 animate-pulse"></div>
+                  <span className="text-xs text-gray-600">Active</span>
                 </div>
               </div>
             ))}

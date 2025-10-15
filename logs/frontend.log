@@ -3,7 +3,35 @@
 > vite --port 5173 --host
 
 
-  VITE v7.1.10  ready in 115 ms
+  VITE v7.1.10  ready in 114 ms
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: http://192.168.0.103:5173/
+
+
+Source path: /home/ghost/cc-statement-parser/frontend/src/styles/index.css
+Setting up new context...
+Finding changed files: 3.727ms
+Reading changed files: 33.191ms
+Sorting candidates: 1.397ms
+Generate rules: 61.993ms
+Build stylesheet: 1.606ms
+Potential classes:  3239
+Active contexts:  1
+JIT TOTAL: 192.65ms
+
+
+10:59:02 pm [vite] (client) hmr update /src/components/pages/UploadPage.jsx, /src/styles/index.css
+
+
+Source path: /home/ghost/cc-statement-parser/frontend/src/styles/index.css
+Finding changed files: 5.043ms
+Reading changed files: 11.681ms
+Sorting candidates: 0.197ms
+Generate rules: 4.964ms
+Build stylesheet: 1.091ms
+Potential classes:  427
+Active contexts:  1
+JIT TOTAL: 42.901ms
+
+

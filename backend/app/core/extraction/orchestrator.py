@@ -95,9 +95,13 @@ class ExtractionOrchestrator:
             
             # Use field mapper
             statement_fields = self.field_mapper.extract_fields(processed_bytes)
-            
+
             # Then use bank-specific parser for refinement
-            result = parser.parse(full_text, statement_fields)
+            # Pass PDF bytes for spatial-aware parsers
+            if hasattr(parser, 'parse_with_pdf'):
+                result = parser.parse_with_pdf(processed_bytes, full_text, statement_fields)
+            else:
+                result = parser.parse(full_text, statement_fields)
             
             # Add metadata
             result.extraction_metadata["quality_score"] = quality_score

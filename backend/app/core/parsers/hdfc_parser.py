@@ -355,3 +355,247 @@ class HDFCParser(BaseParser):
                         continue
 
         return fields
+
+
+    def parse_with_pdf(self, pdf_bytes: bytes, text: str, extracted_fields=None):
+        """
+        Enhanced parsing using spatial layout for HDFC statements.
+
+        Args:
+            pdf_bytes: Raw PDF bytes
+            text: Extracted text
+            extracted_fields: Pre-extracted fields (optional)
+
+        Returns:
+            ExtractionResult with spatially-extracted fields
+        """
+        from app.models.domain.extraction_result import ExtractionResult
+        from app.utils.date_parser import parse_date
+        from app.utils.logger import get_logger
+        import uuid
+        import fitz
+
+        logger = get_logger(__name__)
+        logger.info("Using improved spatial extraction for HDFC Bank")
+
+        result = ExtractionResult(
+            id=str(uuid.uuid4()),
+            job_id="",
+            document_id="",
+            issuer=self.get_issuer_type(),
+            raw_text=text[:500]
+        )
+
+        try:
+            doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+            page = doc[0]
+            
+            text_dict = page.get_text("dict")
+            blocks = []
+            for block in text_dict.get("blocks", []):
+                if "lines" in block:
+                    for line in block["lines"]:
+                        for span in line["spans"]:
+                            bbox = span["bbox"]
+                            text_content = span["text"].strip()
+                            if text_content:
+                                blocks.append({
+                                    "text": text_content,
+                                    "x": bbox[0],
+                                    "y": bbox[1],
+                                    "x2": bbox[2],
+                                    "y2": bbox[3],
+                                    "center_x": (bbox[0] + bbox[2]) / 2,
+                                    "center_y": (bbox[1] + bbox[3]) / 2,
+                                })
+            
+            blocks.sort(key=lambda b: (b["y"], b["x"]))
+            
+            # 1. Card Number (last 4 digits) - inline with "Card No:"
+            for block in blocks:
+                if "Card No" in block["text"]:
+                    # Find all 4-digit sequences and take the last one
+                    matches = re.findall(r'\d{4}', block["text"])
+                    if matches:
+                        result.add_field(Field(
+                            field_type=FieldType.CARD_LAST_4_DIGITS,
+                            value=matches[-1],  # Last 4 digits
+                            confidence=0.95,
+                            snippet=block["text"],
+                            extraction_method="spatial"
+                        ))
+                    break
+            
+            # 2. Cardholder Name - right of "Name" label (same line)
+            for i, block in enumerate(blocks):
+                if block["text"] == "Name":
+                    for j in range(i+1, min(i+5, len(blocks))):
+                        if abs(blocks[j]["y"] - block["y"]) < 3 and blocks[j]["x"] > block["x"]:
+                            name = blocks[j]["text"].strip(": ")
+                            if len(name) > 3 and not re.search(r'\d', name):
+                                result.add_field(Field(
+                                    field_type=FieldType.CARDHOLDER_NAME,
+                                    value=name.title(),
+                                    confidence=0.90,
+                                    snippet=name,
+                                    extraction_method="spatial"
+                                ))
+                            break
+                    break
+            
+            # 3. Statement Date - inline with label
+            for block in blocks:
+                if "Statement Date" in block["text"]:
+                    match = re.search(r'(\d{1,2}/\d{1,2}/\d{4})', block["text"])
+                    if match:
+                        parsed = parse_date(match.group(1))
+                        if parsed:
+                            result.add_field(Field(
+                                field_type=FieldType.STATEMENT_DATE,
+                                value=parsed.strftime("%Y-%m-%d"),
+                                confidence=0.95,
+                                snippet=match.group(1),
+                                extraction_method="spatial"
+                            ))
+                    break
+            
+            # 4. Payment Due Date - below label
+            for i, block in enumerate(blocks):
+                if "Payment Due Date" in block["text"]:
+                    for j in range(i+1, min(i+10, len(blocks))):
+                        candidate = blocks[j]
+                        y_diff = candidate["y"] - block["y"]
+                        if 5 < y_diff < 30:
+                            if re.match(r'^\d{1,2}/\d{1,2}/\d{4}$', candidate["text"]):
+                                parsed = parse_date(candidate["text"])
+                                if parsed:
+                                    result.add_field(Field(
+                                        field_type=FieldType.PAYMENT_DUE_DATE,
+                                        value=parsed.strftime("%Y-%m-%d"),
+                                        confidence=0.95,
+                                        snippet=candidate["text"],
+                                        extraction_method="spatial"
+                                    ))
+                                break
+                    break
+            
+            # 5. Total Amount Due
+            for i, block in enumerate(blocks):
+                if block["text"] == "Total Dues":
+                    label_y = block["y"]
+                    label_x = block["center_x"]
+                    for j in range(i+1, min(i+15, len(blocks))):
+                        candidate = blocks[j]
+                        y_diff = candidate["y"] - label_y
+                        x_diff = abs(candidate["center_x"] - label_x)
+                        if 5 < y_diff < 40 and x_diff < 30:
+                            if re.search(r'^[\d,]+\.?\d{0,2}$', candidate["text"]):
+                                result.add_field(Field(
+                                    field_type=FieldType.TOTAL_AMOUNT_DUE,
+                                    value=float(candidate["text"].replace(',', '')),
+                                    confidence=0.95,
+                                    snippet=candidate["text"],
+                                    extraction_method="spatial"
+                                ))
+                                break
+                    break
+            
+            # 6. Minimum Amount Due
+            for i, block in enumerate(blocks):
+                if "Minimum Amount Due" in block["text"]:
+                    label_y = block["y"]
+                    label_x = block["center_x"]
+                    for j in range(i+1, min(i+15, len(blocks))):
+                        candidate = blocks[j]
+                        y_diff = candidate["y"] - label_y
+                        x_diff = abs(candidate["center_x"] - label_x)
+                        if 5 < y_diff < 40 and x_diff < 40:
+                            if re.search(r'^[\d,]+\.?\d{0,2}$', candidate["text"]):
+                                result.add_field(Field(
+                                    field_type=FieldType.MINIMUM_AMOUNT_DUE,
+                                    value=float(candidate["text"].replace(',', '')),
+                                    confidence=0.95,
+                                    snippet=candidate["text"],
+                                    extraction_method="spatial"
+                                ))
+                                break
+                    break
+            
+            # 7. Credit Limit, Available Credit
+            credit_headers = {}
+            for i, block in enumerate(blocks):
+                if "Credit Limit" == block["text"]:
+                    credit_headers['credit_limit'] = (i, block["center_x"], block["y"])
+                elif "Available Credit Limit" == block["text"]:
+                    credit_headers['available_credit'] = (i, block["center_x"], block["y"])
+            
+            for field_key, (idx, header_x, header_y) in credit_headers.items():
+                for j in range(idx+1, min(idx+20, len(blocks))):
+                    candidate = blocks[j]
+                    y_diff = candidate["y"] - header_y
+                    x_diff = abs(candidate["center_x"] - header_x)
+                    if 10 < y_diff < 50 and x_diff < 30:
+                        if re.search(r'^[\d,]+$', candidate["text"]):
+                            field_type = FieldType.CREDIT_LIMIT if field_key == 'credit_limit' else FieldType.AVAILABLE_CREDIT
+                            result.add_field(Field(
+                                field_type=field_type,
+                                value=float(candidate["text"].replace(',', '')),
+                                confidence=0.95,
+                                snippet=candidate["text"],
+                                extraction_method="spatial"
+                            ))
+                            break
+            
+            # 8. Opening Balance, Payments/Credits, Purchases/Debits
+            balance_headers = {}
+            for i, block in enumerate(blocks):
+                text_clean = block["text"].strip()
+                if text_clean == "Opening":
+                    if i+1 < len(blocks) and "Balance" in blocks[i+1]["text"]:
+                        balance_headers['opening'] = (i, block["center_x"], block["y"])
+                elif "Payment" in text_clean or "Credits" in text_clean:
+                    balance_headers['payments'] = (i, block["center_x"], block["y"])
+                elif "Purchase" in text_clean or "Debits" in text_clean:
+                    balance_headers['purchases'] = (i, block["center_x"], block["y"])
+            
+            for field_key, (idx, header_x, header_y) in balance_headers.items():
+                for j in range(idx+1, min(idx+20, len(blocks))):
+                    candidate = blocks[j]
+                    y_diff = candidate["y"] - header_y
+                    x_diff = abs(candidate["center_x"] - header_x)
+                    if 10 < y_diff < 50 and x_diff < 30:
+                        if re.search(r'^[\d,]+\.?\d{0,2}$', candidate["text"]):
+                            if field_key == 'opening':
+                                result.add_field(Field(
+                                    field_type=FieldType.OPENING_BALANCE,
+                                    value=float(candidate["text"].replace(',', '')),
+                                    confidence=0.90,
+                                    snippet=candidate["text"],
+                                    extraction_method="spatial"
+                                ))
+                            elif field_key == 'payments':
+                                result.add_field(Field(
+                                    field_type=FieldType.TOTAL_PAYMENTS,
+                                    value=float(candidate["text"].replace(',', '')),
+                                    confidence=0.90,
+                                    snippet=candidate["text"],
+                                    extraction_method="spatial"
+                                ))
+                            elif field_key == 'purchases':
+                                result.add_field(Field(
+                                    field_type=FieldType.TOTAL_PURCHASES,
+                                    value=float(candidate["text"].replace(',', '')),
+                                    confidence=0.90,
+                                    snippet=candidate["text"],
+                                    extraction_method="spatial"
+                                ))
+                            break
+            
+            doc.close()
+            logger.info(f"HDFC spatial extraction completed: {result.field_count} fields")
+
+        except Exception as e:
+            logger.error(f"HDFC spatial parsing failed: {e}", exc_info=True)
+            return self.parse(text, extracted_fields)
+
+        return result

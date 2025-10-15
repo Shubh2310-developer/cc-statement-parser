@@ -383,3 +383,259 @@ class ICICIParser(BaseParser):
                         continue
 
         return fields
+
+
+    def parse_with_pdf(self, pdf_bytes: bytes, text: str, extracted_fields=None):
+        """Enhanced ICICI spatial extraction with detailed coordinate analysis."""
+        from app.models.domain.extraction_result import ExtractionResult
+        from app.utils.date_parser import parse_date
+        from app.utils.logger import get_logger
+        import uuid
+        import fitz
+
+        logger = get_logger(__name__)
+        logger.info("Using detailed spatial extraction for ICICI Bank")
+
+        result = ExtractionResult(
+            id=str(uuid.uuid4()),
+            job_id="",
+            document_id="",
+            issuer=self.get_issuer_type(),
+            raw_text=text[:500] if text else ""
+        )
+
+        try:
+            doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+            page = doc[0]
+
+            # Extract all text with positions
+            text_dict = page.get_text("dict")
+            blocks = []
+            for block in text_dict.get("blocks", []):
+                if "lines" in block:
+                    for line in block["lines"]:
+                        for span in line["spans"]:
+                            text_content = span["text"].strip()
+                            if text_content:
+                                blocks.append({
+                                    "text": text_content,
+                                    "x": span["bbox"][0],
+                                    "y": span["bbox"][1],
+                                    "x2": span["bbox"][2],
+                                    "y2": span["bbox"][3],
+                                    "center_x": (span["bbox"][0] + span["bbox"][2]) / 2,
+                                    "center_y": (span["bbox"][1] + span["bbox"][3]) / 2,
+                                })
+
+            blocks.sort(key=lambda b: (b["y"], b["x"]))
+
+            logger.debug(f"Extracted {len(blocks)} text blocks from ICICI PDF")
+
+            # 1. Card Last 4 Digits - Look for pattern "0000XXXXXXXX1265"
+            for i, block in enumerate(blocks):
+                if re.search(r'\d{4}[X*]+\d{4}', block["text"]):
+                    # Extract last 4 digits
+                    digits = re.findall(r'\d{4}', block["text"])
+                    if digits:
+                        last4 = digits[-1]
+                        result.add_field(Field(
+                            field_type=FieldType.CARD_LAST_4_DIGITS,
+                            value=last4,
+                            confidence=0.95,
+                            snippet=block["text"],
+                            extraction_method="spatial"
+                        ))
+                        logger.debug(f"Found card last 4: {last4}")
+                        break
+
+            # 2. Cardholder Name - Look for "MR/MS/MRS NAME" at top of document
+            for i, block in enumerate(blocks[:30]):
+                text_upper = block["text"].upper()
+                # Check if starts with title and has name pattern
+                if text_upper.startswith(("MR ", "MS ", "MRS ", "MR. ", "MS. ", "MRS. ")):
+                    # Make sure it's a name and not some other text
+                    name_text = block["text"].strip()
+                    # Remove title prefix
+                    for prefix in ["MR ", "MS ", "MRS ", "MR. ", "MS. ", "MRS. "]:
+                        if name_text.upper().startswith(prefix):
+                            name_text = name_text[len(prefix):].strip()
+                            break
+
+                    # Check if it looks like a name (letters and spaces only)
+                    if name_text and re.match(r'^[A-Z][A-Z\s]+$', name_text):
+                        result.add_field(Field(
+                            field_type=FieldType.CARDHOLDER_NAME,
+                            value=name_text.title(),
+                            confidence=0.90,
+                            snippet=block["text"],
+                            extraction_method="spatial"
+                        ))
+                        logger.debug(f"Found cardholder name: {name_text}")
+                        break
+
+            # 3. Statement Date - Find "STATEMENT DATE" label and value below
+            for i, block in enumerate(blocks):
+                if "STATEMENT DATE" in block["text"].upper():
+                    label_y = block["y"]
+                    label_x = block["center_x"]
+                    # Look for date in next few blocks
+                    for j in range(i+1, min(i+15, len(blocks))):
+                        candidate = blocks[j]
+                        y_diff = candidate["y"] - label_y
+                        x_diff = abs(candidate["center_x"] - label_x)
+
+                        # Check if it's below the label and aligned
+                        if 5 < y_diff < 40 and x_diff < 50:
+                            # Try to parse as date
+                            parsed = parse_date(candidate["text"])
+                            if parsed:
+                                result.add_field(Field(
+                                    field_type=FieldType.STATEMENT_DATE,
+                                    value=parsed.strftime("%Y-%m-%d"),
+                                    confidence=0.95,
+                                    snippet=candidate["text"],
+                                    extraction_method="spatial"
+                                ))
+                                logger.debug(f"Found statement date: {parsed.strftime('%Y-%m-%d')}")
+                                break
+                    break
+
+            # 4. Payment Due Date - Find "PAYMENT DUE DATE" label
+            for i, block in enumerate(blocks):
+                if "PAYMENT DUE DATE" in block["text"].upper():
+                    label_y = block["y"]
+                    label_x = block["center_x"]
+                    for j in range(i+1, min(i+15, len(blocks))):
+                        candidate = blocks[j]
+                        y_diff = candidate["y"] - label_y
+                        x_diff = abs(candidate["center_x"] - label_x)
+
+                        if 5 < y_diff < 40 and x_diff < 50:
+                            parsed = parse_date(candidate["text"])
+                            if parsed:
+                                result.add_field(Field(
+                                    field_type=FieldType.PAYMENT_DUE_DATE,
+                                    value=parsed.strftime("%Y-%m-%d"),
+                                    confidence=0.95,
+                                    snippet=candidate["text"],
+                                    extraction_method="spatial"
+                                ))
+                                logger.debug(f"Found payment due date: {parsed.strftime('%Y-%m-%d')}")
+                                break
+                    break
+
+            # 5. Total Amount Due - Look for exact label match
+            for i, block in enumerate(blocks):
+                if block["text"].strip() == "Total Amount due":
+                    label_y = block["y"]
+                    label_x = block["center_x"]
+                    for j in range(i+1, min(i+20, len(blocks))):
+                        candidate = blocks[j]
+                        y_diff = candidate["y"] - label_y
+                        x_diff = abs(candidate["center_x"] - label_x)
+
+                        if 5 < y_diff < 40 and x_diff < 40:
+                            # Extract amount
+                            amount_text = candidate["text"].replace(',', '').replace('`', '').replace('₹', '').replace('Rs', '').strip()
+                            if re.match(r'^\d+(\.\d{1,2})?$', amount_text):
+                                result.add_field(Field(
+                                    field_type=FieldType.TOTAL_AMOUNT_DUE,
+                                    value=float(amount_text),
+                                    confidence=0.95,
+                                    snippet=candidate["text"],
+                                    extraction_method="spatial"
+                                ))
+                                logger.debug(f"Found total amount due: {amount_text}")
+                                break
+                    break
+
+            # 6. Minimum Amount Due
+            for i, block in enumerate(blocks):
+                if block["text"].strip() == "Minimum Amount due":
+                    label_y = block["y"]
+                    label_x = block["center_x"]
+                    for j in range(i+1, min(i+20, len(blocks))):
+                        candidate = blocks[j]
+                        y_diff = candidate["y"] - label_y
+                        x_diff = abs(candidate["center_x"] - label_x)
+
+                        if 5 < y_diff < 40 and x_diff < 40:
+                            amount_text = candidate["text"].replace(',', '').replace('`', '').replace('₹', '').replace('Rs', '').strip()
+                            if re.match(r'^\d+(\.\d{1,2})?$', amount_text):
+                                result.add_field(Field(
+                                    field_type=FieldType.MINIMUM_AMOUNT_DUE,
+                                    value=float(amount_text),
+                                    confidence=0.95,
+                                    snippet=candidate["text"],
+                                    extraction_method="spatial"
+                                ))
+                                logger.debug(f"Found minimum amount due: {amount_text}")
+                                break
+                    break
+
+            # 7. Credit Limit - Column-based extraction
+            credit_headers = {}
+            for i, block in enumerate(blocks):
+                text_clean = block["text"].strip()
+                if text_clean == "Credit Limit":
+                    credit_headers['credit_limit'] = (i, block["center_x"], block["y"])
+                elif text_clean == "Available Credit":
+                    credit_headers['available_credit'] = (i, block["center_x"], block["y"])
+
+            for key, (idx, header_x, header_y) in credit_headers.items():
+                for j in range(idx+1, min(idx+25, len(blocks))):
+                    candidate = blocks[j]
+                    y_diff = candidate["y"] - header_y
+                    x_diff = abs(candidate["center_x"] - header_x)
+
+                    # Column alignment check
+                    if 10 < y_diff < 50 and x_diff < 35:
+                        amount_text = candidate["text"].replace(',', '').replace('`', '').replace('₹', '').replace('Rs', '').strip()
+                        if re.match(r'^\d+(\.\d{1,2})?$', amount_text):
+                            field_type = FieldType.CREDIT_LIMIT if key == 'credit_limit' else FieldType.AVAILABLE_CREDIT
+                            result.add_field(Field(
+                                field_type=field_type,
+                                value=float(amount_text),
+                                confidence=0.95,
+                                snippet=candidate["text"],
+                                extraction_method="spatial"
+                            ))
+                            logger.debug(f"Found {key}: {amount_text}")
+                            break
+
+            # 8. Previous Balance (Opening Balance)
+            for i, block in enumerate(blocks):
+                if block["text"].strip() == "Previous Balance":
+                    label_y = block["y"]
+                    label_x = block["center_x"]
+                    for j in range(i+1, min(i+20, len(blocks))):
+                        candidate = blocks[j]
+                        y_diff = candidate["y"] - label_y
+                        x_diff = abs(candidate["center_x"] - label_x)
+
+                        if 5 < y_diff < 40 and x_diff < 50:
+                            amount_text = candidate["text"].replace(',', '').replace('`', '').replace('₹', '').replace('Rs', '').strip()
+                            if re.match(r'^\d+(\.\d{1,2})?$', amount_text):
+                                result.add_field(Field(
+                                    field_type=FieldType.OPENING_BALANCE,
+                                    value=float(amount_text),
+                                    confidence=0.90,
+                                    snippet=candidate["text"],
+                                    extraction_method="spatial"
+                                ))
+                                logger.debug(f"Found previous balance: {amount_text}")
+                                break
+                    break
+
+            doc.close()
+            logger.info(f"ICICI spatial extraction completed: {result.field_count} fields")
+
+        except Exception as e:
+            logger.error(f"ICICI spatial parsing failed: {e}", exc_info=True)
+            # Fallback to regex-based parsing
+            full_text = page.get_text() if 'page' in locals() else text
+            if 'doc' in locals():
+                doc.close()
+            return self.parse(full_text, extracted_fields)
+
+        return result

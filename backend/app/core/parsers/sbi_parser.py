@@ -383,3 +383,221 @@ class SBIParser(BaseParser):
                         continue
 
         return fields
+
+    def parse_with_pdf(self, pdf_bytes: bytes, text: str, extracted_fields=None):
+        """
+        Enhanced parsing using spatial layout information for SBI statements.
+
+        Args:
+            pdf_bytes: Raw PDF bytes
+            text: Extracted text
+            extracted_fields: Pre-extracted fields (optional)
+
+        Returns:
+            ExtractionResult with spatially-extracted fields
+        """
+        from app.models.domain.extraction_result import ExtractionResult
+        from app.utils.date_parser import parse_date
+        from app.utils.logger import get_logger
+        import uuid
+        import fitz
+
+        logger = get_logger(__name__)
+        logger.info("Using spatial-aware extraction for SBI Card")
+
+        # Create result object
+        result = ExtractionResult(
+            id=str(uuid.uuid4()),
+            job_id="",
+            document_id="",
+            issuer=self.get_issuer_type(),
+            raw_text=text[:500]
+        )
+
+        try:
+            doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+            page = doc[0]
+
+            # Extract text with positions
+            text_dict = page.get_text("dict")
+            blocks = []
+            for block in text_dict.get("blocks", []):
+                if "lines" in block:
+                    for line in block["lines"]:
+                        for span in line["spans"]:
+                            blocks.append({
+                                "text": span["text"].strip(),
+                                "y": span["bbox"][1],
+                                "x": span["bbox"][0],
+                            })
+
+            blocks.sort(key=lambda b: (b["y"], b["x"]))
+
+            # Extract card last 4
+            for block in blocks:
+                if re.search(r'X+\s+X+\s+X+\s+\w{4}', block["text"]):
+                    parts = block["text"].split()
+                    if len(parts) >= 4:
+                        result.add_field(Field(
+                            field_type=FieldType.CARD_LAST_4_DIGITS,
+                            value=parts[-1],
+                            confidence=0.95,
+                            snippet=block["text"],
+                            extraction_method="spatial"
+                        ))
+                    break
+
+            # Extract label-value pairs
+            for i, block in enumerate(blocks):
+                text_lower = block["text"].lower()
+
+                # Statement Date
+                if text_lower == "statement date":
+                    for j in range(i+1, min(i+10, len(blocks))):
+                        candidate = blocks[j]["text"]
+                        if re.search(r'\d{1,2}\s+\w+\s+\d{4}', candidate) and "to" not in candidate.lower():
+                            parsed = parse_date(candidate)
+                            if parsed:
+                                result.add_field(Field(
+                                    field_type=FieldType.STATEMENT_DATE,
+                                    value=parsed.strftime("%Y-%m-%d"),
+                                    confidence=0.95,
+                                    snippet=candidate,
+                                    extraction_method="spatial"
+                                ))
+                            break
+
+                # Credit Limit
+                if "credit limit" in text_lower and "available" not in text_lower:
+                    for j in range(i+1, min(i+8, len(blocks))):
+                        if re.search(r'^[\d,]+\.?\d{0,2}$', blocks[j]["text"]):
+                            result.add_field(Field(
+                                field_type=FieldType.CREDIT_LIMIT,
+                                value=float(blocks[j]["text"].replace(',', '')),
+                                confidence=0.95,
+                                snippet=blocks[j]["text"],
+                                extraction_method="spatial"
+                            ))
+                            break
+
+                # Available Credit
+                if "available credit limit" in text_lower:
+                    for j in range(i+1, min(i+8, len(blocks))):
+                        if re.search(r'^[\d,]+\.?\d{0,2}$', blocks[j]["text"]):
+                            result.add_field(Field(
+                                field_type=FieldType.AVAILABLE_CREDIT,
+                                value=float(blocks[j]["text"].replace(',', '')),
+                                confidence=0.95,
+                                snippet=blocks[j]["text"],
+                                extraction_method="spatial"
+                            ))
+                            break
+
+                # Total Amount Due
+                if ("total amount due" in text_lower or "*total amount due" in text_lower):
+                    for j in range(i+1, min(i+10, len(blocks))):
+                        if re.search(r'^[\d,]+\.?\d{0,2}$', blocks[j]["text"]):
+                            result.add_field(Field(
+                                field_type=FieldType.TOTAL_AMOUNT_DUE,
+                                value=float(blocks[j]["text"].replace(',', '')),
+                                confidence=0.95,
+                                snippet=blocks[j]["text"],
+                                extraction_method="spatial"
+                            ))
+                            break
+
+                # Minimum Amount Due
+                if ("minimum amount due" in text_lower or "**minimum amount due" in text_lower):
+                    for j in range(i+1, min(i+10, len(blocks))):
+                        if re.search(r'^[\d,]+\.?\d{0,2}$', blocks[j]["text"]):
+                            result.add_field(Field(
+                                field_type=FieldType.MINIMUM_AMOUNT_DUE,
+                                value=float(blocks[j]["text"].replace(',', '')),
+                                confidence=0.95,
+                                snippet=blocks[j]["text"],
+                                extraction_method="spatial"
+                            ))
+                            break
+
+                # Payment Due Date
+                if "payment due date" in text_lower:
+                    for j in range(i+1, min(i+6, len(blocks))):
+                        candidate = blocks[j]["text"]
+                        if "NO PAYMENT" in candidate.upper():
+                            result.add_field(Field(
+                                field_type=FieldType.PAYMENT_DUE_DATE,
+                                value="No payment required",
+                                confidence=0.95,
+                                snippet=candidate,
+                                extraction_method="spatial"
+                            ))
+                            break
+                        elif re.search(r'\d{1,2}\s+\w+\s+\d{4}', candidate):
+                            parsed = parse_date(candidate)
+                            if parsed:
+                                result.add_field(Field(
+                                    field_type=FieldType.PAYMENT_DUE_DATE,
+                                    value=parsed.strftime("%Y-%m-%d"),
+                                    confidence=0.95,
+                                    snippet=candidate,
+                                    extraction_method="spatial"
+                                ))
+                            break
+
+            # Cardholder name from top
+            for block in blocks[:15]:
+                if block["y"] < 80 and re.match(r'^[A-Z][A-Z\s]{5,40}$', block["text"]):
+                    words = block["text"].split()
+                    if 2 <= len(words) <= 4 and not any(kw in block["text"].upper() for kw in ["GSTIN", "CARD", "NUMBER"]):
+                        result.add_field(Field(
+                            field_type=FieldType.CARDHOLDER_NAME,
+                            value=block["text"].title(),
+                            confidence=0.90,
+                            snippet=block["text"],
+                            extraction_method="spatial"
+                        ))
+                        break
+
+            # Statement period
+            period_match = re.search(r'Statement\s+Period[\s:]*(\d{1,2}\s+\w+\s+\d{2,4})\s+to\s+(\d{1,2}\s+\w+\s+\d{2,4})', text, re.IGNORECASE)
+            if period_match:
+                start_parsed = parse_date(period_match.group(1))
+                end_parsed = parse_date(period_match.group(2))
+                if start_parsed:
+                    result.add_field(Field(
+                        field_type=FieldType.STATEMENT_PERIOD_START,
+                        value=start_parsed.strftime("%Y-%m-%d"),
+                        confidence=0.95,
+                        snippet=period_match.group(0),
+                        extraction_method="spatial"
+                    ))
+                if end_parsed:
+                    result.add_field(Field(
+                        field_type=FieldType.STATEMENT_PERIOD_END,
+                        value=end_parsed.strftime("%Y-%m-%d"),
+                        confidence=0.95,
+                        snippet=period_match.group(0),
+                        extraction_method="spatial"
+                    ))
+
+            # Card variant
+            full_text = page.get_text()
+            variant_match = re.search(r'(SimplySAVE|SimplyClick|Elite|Platinum|BPCL|IRCTC)\s*(?:SBI)?', full_text, re.IGNORECASE)
+            if variant_match:
+                result.add_field(Field(
+                    field_type=FieldType.CARD_VARIANT,
+                    value=variant_match.group(1),
+                    confidence=0.90,
+                    snippet=variant_match.group(0),
+                    extraction_method="spatial"
+                ))
+
+            doc.close()
+            logger.info(f"Spatial extraction completed: {result.field_count} fields")
+
+        except Exception as e:
+            logger.error(f"Spatial parsing failed: {e}", exc_info=True)
+            # Fall back to regex parsing
+            return self.parse(text, extracted_fields)
+
+        return result
