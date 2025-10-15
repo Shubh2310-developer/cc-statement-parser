@@ -722,3 +722,38 @@ INFO:     127.0.0.1:43974 - "GET /api/v1/health HTTP/1.1" 200 OK
 [2m2025-10-15T17:29:19.917575Z[0m [[32m[1minfo     [0m] [1mRequest started               [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '57f10dfd-efb8-4188-b9dd-64095661e5be', 'method': 'GET', 'path': '/api/v1/health'}[0m [36mrequest_id[0m=[35m57f10dfd-efb8-4188-b9dd-64095661e5be[0m
 [2m2025-10-15T17:29:19.918314Z[0m [[32m[1minfo     [0m] [1mRequest completed             [0m [[34m[1mapp.api.middleware.logging[0m] [36mextra[0m=[35m{'request_id': '57f10dfd-efb8-4188-b9dd-64095661e5be', 'duration': '0.001s', 'status_code': 200}[0m [36mrequest_id[0m=[35m57f10dfd-efb8-4188-b9dd-64095661e5be[0m
 INFO:     127.0.0.1:43984 - "GET /api/v1/health HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/config.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2025-10-15T17:41:28.167205Z[0m [[32m[1minfo     [0m] [1mShutting down application     [0m [[34m[1mapp.main[0m] 
+INFO:     Application shutdown complete.
+INFO:     Finished server process [61072]
+INFO:     Started server process [68419]
+INFO:     Waiting for application startup.
+[2m2025-10-15T17:41:29.319131Z[0m [[32m[1minfo     [0m] [1mStarting CC Statement Parser API[0m [[34m[1mapp.main[0m] 
+[2m2025-10-15T17:41:29.319268Z[0m [[32m[1minfo     [0m] [1mInitializing database         [0m [[34m[1mapp.database.connection[0m] 
+2025-10-15 23:11:29,320 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+BEGIN (implicit)
+2025-10-15 23:11:29,321 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("jobs")
+PRAGMA main.table_info("jobs")
+2025-10-15 23:11:29,321 INFO sqlalchemy.engine.Engine [raw sql] ()
+[raw sql] ()
+2025-10-15 23:11:29,321 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("documents")
+PRAGMA main.table_info("documents")
+2025-10-15 23:11:29,321 INFO sqlalchemy.engine.Engine [raw sql] ()
+[raw sql] ()
+2025-10-15 23:11:29,322 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("results")
+PRAGMA main.table_info("results")
+2025-10-15 23:11:29,322 INFO sqlalchemy.engine.Engine [raw sql] ()
+[raw sql] ()
+2025-10-15 23:11:29,322 INFO sqlalchemy.engine.Engine COMMIT
+COMMIT
+[2m2025-10-15T17:41:29.322943Z[0m [[32m[1minfo     [0m] [1mDatabase initialized successfully[0m [[34m[1mapp.database.connection[0m] 
+[2m2025-10-15T17:41:29.322998Z[0m [[32m[1minfo     [0m] [1mApplication started successfully[0m [[34m[1mapp.main[0m] 
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2025-10-15T18:47:10.385054Z[0m [[32m[1minfo     [0m] [1mShutting down application     [0m [[34m[1mapp.main[0m] 
+INFO:     Application shutdown complete.
+INFO:     Finished server process [68419]
+INFO:     Stopping reloader process [61069]

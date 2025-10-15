@@ -35,3 +35,17 @@ Active contexts:  1
 JIT TOTAL: 42.901ms
 
 
+11:59:54 pm [vite] (client) page reload index.html
+
+
+Source path: /home/ghost/cc-statement-parser/frontend/src/styles/index.css
+Finding changed files: 1.091ms
+Reading changed files: 1.366ms
+Sorting candidates: 0.016ms
+Generate rules: 0.1ms
+Build stylesheet: 0.003ms
+Potential classes:  50
+Active contexts:  1
+JIT TOTAL: 10.574ms
+
+
