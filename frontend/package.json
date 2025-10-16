@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite --port 5173 --host",
     "build": "vite build",
-    "vercel-build": "vite build",
+    "vercel-build": "npm run build",
     "preview": "vite preview",
     "test": "vitest",
     "lint": "eslint src --ext .js,.jsx",
