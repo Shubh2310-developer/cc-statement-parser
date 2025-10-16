@@ -366,5 +366,43 @@ class JSONDictSafe(JSONDict):
 }
 
 
-Act as a proffesional backend develper and code all files in the /home/ghost/cc-statement-parser/backend which contains file and subfolders  which contains files read readme for  in depth information i have /home/ghost/cc-statement-parser/AmexCCSample.pdf , /home/ghost/cc-statement-parser/AXISCCSAMPLE.pdf , /home/ghost/cc-statement-parser/HDFCCCSAMPLE.pdf , /home/ghost/cc-statement-parser/ICICICCSAMPLE.pdf according to this files  it should extract  these details from all bank cc statement : transaction info, card variant, card
-last 4 digits, billing cycle, payment due date, total balance) with name and little info and also see that 
+✅ Vercel Full-Stack Setup Complete!
+I've configured your project to deploy both frontend and backend on Vercel!
+📁 Files Created:
+vercel.json - Vercel deployment configuration
+api/index.py - Serverless function wrapper for FastAPI
+package.json - Root build configuration
+requirements.txt - Python dependencies (copied from backend)
+Updated frontend/.env.production - API URL now uses relative path /api/v1
+🚀 Deploy to Vercel Now:
+Option 1: Push to GitHub (Auto-Deploy)
+git push origin main
+Vercel will automatically detect the push and deploy both frontend + backend!
+Option 2: Manual Deploy via Vercel Dashboard
+Go to Vercel Dashboard
+Click your project
+Click "Deployments" → "Redeploy"
+📊 How It Works:
+https://cc-statement-parser.vercel.app/
+├── /                    → Frontend (React)
+├── /api/v1/parse        → Backend API (FastAPI serverless)
+├── /api/v1/health       → Backend health check
+└── /docs                → API documentation
+Everything on one domain, one platform! 🎉
+⚠️ Important Notes:
+Vercel Limitations for Python:
+Serverless Functions: Max 50MB deployment size
+10 second timeout: Long PDF processing might timeout
+Memory: 1GB max (should be enough)
+Cold starts: First request slower (~2-3 seconds)
+Your app should work fine since PDFs process quickly (<2 seconds).
+🎯 Next Steps:
+Push to GitHub:
+git push origin main
+Wait 2-3 minutes for Vercel auto-deployment
+Test your app:
+Frontend: https://cc-statement-parser.vercel.app/
+API Health: https://cc-statement-parser.vercel.app/api/v1/health
+API Docs: https://cc-statement-parser.vercel.app/docs
+Upload a PDF and verify extraction works!
+Everything is now on Vercel! Much simpler than managing two platforms. Push to GitHub and let me know if you need help! 🚀
