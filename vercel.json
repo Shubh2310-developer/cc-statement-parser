@@ -9,18 +9,21 @@
       }
     },
     {
-      "src": "api/index.py",
+      "src": "api/*.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/api/v1/(.*)",
+      "src": "/api/(.*)",
       "dest": "/api/index.py"
     },
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/frontend/$1"
+      "dest": "/frontend/dist/$1"
     }
   ]
 }
